@@ -1,9 +1,9 @@
 /* --- Hero Section --- */
 .hero {
-    /* Eliminamos el margin-top para que no se solape y use el padding del body */
-    margin-top: 0; 
+    /* Eliminamos el espacio de 60px y forzamos el pegado al header */
+    margin-top: -1px !important; 
     
-    /* Calculamos la altura: 100% de la pantalla menos el alto del header */
+    /* Calculamos la altura exacta restando el header */
     height: calc(100vh - 115px); 
     
     background: linear-gradient(rgba(15, 18, 33, 0.8), rgba(15, 18, 33, 0.8)), 
@@ -17,44 +17,45 @@
     text-align: center;
     color: var(--blanco);
     padding: 0 20px;
+    position: relative;
+    z-index: 1;
 }
 
 .hero h1 {
-    font-size: 3.5rem; /* Un poco más grande para destacar */
+    font-size: 3.5rem;
+    margin-top: 0; /* Reset de margen para evitar empuje interno */
     margin-bottom: 1rem;
     text-transform: uppercase;
-    letter-spacing: 2px;
 }
 
 .hero p {
     font-size: 1.2rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
     max-width: 700px;
-    font-weight: 300;
 }
 
 .btn-cta {
     background-color: var(--rojo-logo);
     color: white;
-    padding: 15px 40px; /* Un poco más de aire al botón */
+    padding: 12px 35px;
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
     text-transform: uppercase;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(241, 90, 66, 0.3);
 }
 
 .btn-cta:hover {
     background-color: var(--naranja-rayo);
     color: var(--azul-oscuro);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(255, 180, 0, 0.4);
+    transform: translateY(-2px);
 }
 
 /* --- Secciones Generales --- */
 section {
     padding: 80px 10% 40px;
+    /* Asegura que al navegar no queden espacios en blanco arriba */
+    scroll-margin-top: 115px; 
 }
 
 h2 {
@@ -70,17 +71,18 @@ h2::after {
     content: '';
     width: 60px;
     height: 4px;
-    background: var(--rojo-logo); /* Cambiado a rojo para mayor contraste */
+    background: var(--rojo-logo);
     display: block;
     margin: 10px auto;
 }
 
-/* --- Ajuste Responsivo para Hero --- */
+/* Ajuste para pantallas pequeñas */
 @media (max-width: 992px) {
     .hero {
         height: calc(100vh - 75px);
+        margin-top: -1px !important;
     }
-    .hero h1 {
-        font-size: 2.2rem;
+    section {
+        scroll-margin-top: 75px;
     }
 }
