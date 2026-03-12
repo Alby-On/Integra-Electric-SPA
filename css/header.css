@@ -62,7 +62,7 @@ header {
 /* Main Navbar */
 .main-header {
     background-color: var(--azul-oscuro);
-    padding: 10px 5%; /* Reducido un poco para compensar el logo */
+    padding: 10px 5%; /* Espaciado controlado para la altura total */
     border-bottom: 2px solid var(--naranja-rayo);
 }
 
@@ -74,16 +74,17 @@ header {
     align-items: center;
 }
 
-/* Ajuste para Logo PNG */
+/* Ajuste para Logo PNG - CONTROL DE TAMAÑO */
 .logo-container {
     display: flex;
     align-items: center;
 }
 
 .logo-img {
-    height: 60px; /* Ajusta según el tamaño de tu archivo original */
-    width: auto;
+    height: 55px; /* Altura máxima controlada para que no se vea gigante */
+    width: auto;   /* Mantiene la proporción para que no se deforme */
     display: block;
+    object-fit: contain;
     transition: transform 0.3s ease;
 }
 
@@ -116,10 +117,11 @@ nav ul li a:hover {
 .nav-cta a {
     background-color: transparent;
     border: 2px solid var(--rojo-logo);
-    padding: 10px 20px;
+    padding: 8px 18px;
     border-radius: 5px;
     color: var(--blanco) !important;
     transition: all 0.3s ease !important;
+    font-size: 0.85rem;
 }
 
 .nav-cta a:hover {
@@ -131,6 +133,7 @@ nav ul li a:hover {
 /* Ajustes para móviles */
 @media (max-width: 992px) {
     .top-bar { display: none; } 
-    nav ul { display: none; } /* Aquí deberías activar un menú hamburguesa */
-    .logo-img { height: 45px; }
+    nav ul { display: none; } 
+    .logo-img { height: 40px; } /* Logo más pequeño en tablets y móviles */
+    .main-header { padding: 8px 5%; }
 }
