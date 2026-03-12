@@ -1,20 +1,60 @@
-/* --- Formulario --- */
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
+.contact-container {
             display: flex;
-            flex-direction: column;
+            gap: 50px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .contact-box {
+            flex: 1.5;
+            min-width: 300px;
+            background: var(--gris-claro);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .form-group {
+            display: flex;
             gap: 15px;
+            margin-bottom: 15px;
         }
 
-        .contact-form input, .contact-form textarea {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+        .form-group input {
+            flex: 1;
         }
 
-        /* Responsivo */
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: var(--gris-claro);
+            border-radius: 8px;
+            border-left: 4px solid var(--rojo-logo);
+        }
+
+        .info-item i {
+            font-size: 1.5rem;
+            color: var(--rojo-logo);
+        }
+
+        .map-container {
+            margin-top: 25px;
+            border: 2px solid var(--azul-oscuro);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
         @media (max-width: 768px) {
-            nav ul { display: none; } /* Simplificación para este ejemplo */
-            .hero h1 { font-size: 2rem; }
+            .form-group {
+                flex-direction: column;
+                gap: 15px;
+            }
         }
