@@ -1,10 +1,14 @@
 /* --- Hero Section --- */
 .hero {
-    /* Eliminamos el espacio de 60px y forzamos el pegado al header */
-    margin-top: -1px !important; 
+    /* Eliminamos el margen de 60px que causaba la separación */
+    margin-top: 0 !important; 
     
-    /* Calculamos la altura exacta restando el header */
-    height: calc(100vh - 115px); 
+    /* Usamos min-height para asegurar que cubra el espacio sin huecos */
+    min-height: calc(100vh - 115px); 
+    
+    /* Pequeño ajuste para sellar la unión con el header */
+    position: relative;
+    top: -1px; 
     
     background: linear-gradient(rgba(15, 18, 33, 0.8), rgba(15, 18, 33, 0.8)), 
                 url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1350&q=80');
@@ -16,16 +20,15 @@
     align-items: center;
     text-align: center;
     color: var(--blanco);
-    padding: 0 20px;
-    position: relative;
-    z-index: 1;
+    padding: 40px 20px; /* Añadimos padding vertical para el contenido interno */
 }
 
 .hero h1 {
     font-size: 3.5rem;
-    margin-top: 0; /* Reset de margen para evitar empuje interno */
+    margin-top: 0; /* Reset de margen para evitar empujes internos */
     margin-bottom: 1rem;
     text-transform: uppercase;
+    font-weight: 800;
 }
 
 .hero p {
@@ -37,25 +40,28 @@
 .btn-cta {
     background-color: var(--rojo-logo);
     color: white;
-    padding: 12px 35px;
+    padding: 14px 35px;
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
     text-transform: uppercase;
     transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
 }
 
 .btn-cta:hover {
     background-color: var(--naranja-rayo);
     color: var(--azul-oscuro);
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
 /* --- Secciones Generales --- */
 section {
     padding: 80px 10% 40px;
-    /* Asegura que al navegar no queden espacios en blanco arriba */
-    scroll-margin-top: 115px; 
+    /* Esto ayuda a que el fondo de la sección pegue bien con la anterior */
+    overflow: hidden; 
 }
 
 h2 {
@@ -71,18 +77,18 @@ h2::after {
     content: '';
     width: 60px;
     height: 4px;
-    background: var(--rojo-logo);
+    background: var(--rojo-logo); /* Cambiado a rojo para consistencia */
     display: block;
     margin: 10px auto;
 }
 
-/* Ajuste para pantallas pequeñas */
+/* Ajuste específico para móviles */
 @media (max-width: 992px) {
     .hero {
-        height: calc(100vh - 75px);
-        margin-top: -1px !important;
+        min-height: calc(100vh - 75px);
+        top: 0; /* Reset en móvil */
     }
-    section {
-        scroll-margin-top: 75px;
+    .hero h1 {
+        font-size: 2.2rem;
     }
 }
