@@ -1,1 +1,128 @@
+/* --- ESTILOS SECCIÓN NOSOTROS --- */
 
+#nosotros {
+    padding: 100px 10%;
+    background-color: var(--blanco);
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.about-content {
+    flex: 1.2;
+    min-width: 320px;
+}
+
+.brand-subtitle {
+    color: var(--rojo-logo);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.about-content p {
+    margin-bottom: 20px;
+    color: #444;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.about-mission {
+    margin-top: 30px;
+}
+
+.mission-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    background: var(--gris-claro);
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 5px solid var(--naranja-rayo);
+}
+
+.mission-box i {
+    font-size: 1.5rem;
+    color: var(--azul-oscuro);
+}
+
+.mission-box strong {
+    display: block;
+    font-size: 1.1rem;
+    color: var(--azul-oscuro);
+    margin-bottom: 5px;
+}
+
+/* Columna Visual */
+.about-visual {
+    flex: 1;
+    min-width: 320px;
+    position: relative;
+}
+
+.image-placeholder {
+    background: var(--azul-oscuro);
+    height: 400px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 20px 20px 0 var(--rojo-logo); /* Efecto de diseño moderno */
+    transition: transform 0.3s;
+}
+
+.image-placeholder i {
+    font-size: 8rem;
+    color: rgba(255, 255, 255, 0.1);
+}
+
+.experience-badge {
+    position: absolute;
+    bottom: -20px;
+    left: -20px;
+    background: var(--naranja-rayo);
+    color: var(--azul-oscuro);
+    padding: 20px 30px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+.experience-badge .years {
+    font-size: 2.5rem;
+    font-weight: 900;
+}
+
+.experience-badge .text {
+    font-weight: 700;
+    line-height: 1.2;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .mission-box {
+        text-align: left;
+    }
+    .image-placeholder {
+        height: 300px;
+        box-shadow: 10px 10px 0 var(--rojo-logo);
+    }
+    .experience-badge {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
