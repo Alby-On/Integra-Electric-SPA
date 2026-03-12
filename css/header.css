@@ -41,7 +41,6 @@ header {
     color: var(--naranja-rayo);
 }
 
-/* Iconos de Redes Sociales en Top Bar */
 .social-links-top {
     display: flex;
     gap: 15px;
@@ -62,7 +61,7 @@ header {
 /* Main Navbar */
 .main-header {
     background-color: var(--azul-oscuro);
-    padding: 10px 5%; /* Espaciado controlado para la altura total */
+    padding: 10px 5%;
     border-bottom: 2px solid var(--naranja-rayo);
 }
 
@@ -74,25 +73,38 @@ header {
     align-items: center;
 }
 
-/* Ajuste para Logo PNG - CONTROL DE TAMAÑO */
+/* --- NUEVA CONFIGURACIÓN DE LOGO + TEXTO --- */
 .logo-container {
     display: flex;
     align-items: center;
+    text-decoration: none;
+    gap: 12px; /* Espacio entre la imagen y el texto */
 }
 
 .logo-img {
-    height: 55px; /* Altura máxima controlada para que no se vea gigante */
-    width: auto;   /* Mantiene la proporción para que no se deforme */
+    height: 50px; /* Tamaño controlado del icono */
+    width: auto;
     display: block;
-    object-fit: contain;
     transition: transform 0.3s ease;
 }
 
-.logo-img:hover {
-    transform: scale(1.05);
+.logo-text {
+    color: var(--blanco);
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    text-transform: uppercase;
 }
 
-/* Menú Centrado */
+.logo-text span {
+    color: var(--naranja-rayo); /* El texto 'ELECTRIC SPA' en naranja */
+    display: block; /* Opcional: ponerlo debajo si el nombre es muy largo */
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* Menú */
 nav ul {
     display: flex;
     list-style: none;
@@ -121,7 +133,6 @@ nav ul li a:hover {
     border-radius: 5px;
     color: var(--blanco) !important;
     transition: all 0.3s ease !important;
-    font-size: 0.85rem;
 }
 
 .nav-cta a:hover {
@@ -134,6 +145,7 @@ nav ul li a:hover {
 @media (max-width: 992px) {
     .top-bar { display: none; } 
     nav ul { display: none; } 
-    .logo-img { height: 40px; } /* Logo más pequeño en tablets y móviles */
-    .main-header { padding: 8px 5%; }
+    .logo-img { height: 40px; }
+    .logo-text { font-size: 1rem; }
+    .logo-text span { font-size: 0.75rem; }
 }
