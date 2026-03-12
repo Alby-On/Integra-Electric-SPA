@@ -1,1 +1,20 @@
+/* Variables de color basadas en el logo */
+        :root {
+            --azul-oscuro: #0f1221; /* Fondo del círculo */
+            --naranja-rayo: #ffb400; /* Color del rayo */
+            --rojo-logo: #f15a42;    /* Color de las barras de la 'E' */
+            --blanco: #ffffff;
+            --gris-claro: #f4f4f4;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+        }
