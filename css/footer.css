@@ -1,10 +1,10 @@
-/* --- Carrusel de Marcas (Posicionado sobre el footer) --- */
+/* --- CARRUSEL DE MARCAS AJUSTADO --- */
 .brands-carousel {
-    background: #ffffff; /* Fondo blanco para logos a color */
+    background: #ffffff;
     padding: 25px 0;
     overflow: hidden;
-    margin-bottom: 0; /* Eliminado el margen para que se pegue al footer */
-    border-radius: 0; /* Quitamos radio para unión plana */
+    margin-bottom: 0; 
+    border-radius: 0;
     border-top: 1px solid #eee; 
     display: flex;
     align-items: center;
@@ -18,16 +18,21 @@
 
 .slide {
     width: 250px;
+    height: 80px; /* Altura fija para el contenedor del logo */
     display: flex;
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
+    padding: 0 20px; /* Espacio interno para que no se peguen entre ellos */
 }
 
 .slide img {
-    height: 50px;
+    /* Estas líneas fuerzan el mismo tamaño visual */
+    max-height: 60px;  /* Ajusta este valor según qué tan grandes quieras los logos */
+    max-width: 100%;   /* Evita que logos muy anchos se salgan del slide */
     width: auto;
-    object-fit: contain;
+    height: auto;
+    object-fit: contain; /* Mantiene la proporción sin deformar */
 }
 
 @keyframes scroll-marcas {
