@@ -1,48 +1,117 @@
-/* --- Header & Navbar --- */
-        header {
-            background-color: var(--azul-oscuro);
-            padding: 1rem 5%;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 3px solid var(--rojo-logo);
-        }
+/* --- HEADER COMPLETO --- */
 
-        .logo {
-            color: var(--blanco);
-            font-size: 1.5rem;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
 
-        .logo span {
-            color: var(--naranja-rayo);
-        }
+/* Top Bar */
+.top-bar {
+    background-color: var(--rojo-logo); /* Color llamativo superior */
+    color: white;
+    padding: 8px 5%;
+    font-size: 0.85rem;
+}
 
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
+.top-bar-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        nav ul li {
-            margin-left: 20px;
-        }
+.contact-links a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+    transition: opacity 0.3s;
+}
 
-        nav ul li a {
-            color: var(--blanco);
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
+.contact-links a:hover {
+    opacity: 0.8;
+}
 
-        nav ul li a:hover {
-            color: var(--naranja-rayo);
-        }
+.contact-links i {
+    margin-right: 5px;
+    color: var(--naranja-rayo);
+}
+
+/* Main Navbar */
+.main-header {
+    background-color: var(--azul-oscuro);
+    padding: 15px 5%;
+    border-bottom: 2px solid var(--naranja-rayo);
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: var(--blanco);
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.logo i {
+    color: var(--naranja-rayo);
+    margin-right: 8px;
+}
+
+.logo span {
+    color: var(--naranja-rayo);
+}
+
+/* Menú Centrado */
+nav ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 25px;
+}
+
+nav ul li a {
+    color: var(--blanco);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--naranja-rayo);
+}
+
+/* Botón de Contacto Enmarcado */
+.nav-cta a {
+    background-color: transparent;
+    border: 2px solid var(--rojo-logo);
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: var(--blanco) !important;
+    transition: all 0.3s ease !important;
+}
+
+.nav-cta a:hover {
+    background-color: var(--rojo-logo);
+    color: white !important;
+    box-shadow: 0 0 10px rgba(241, 90, 66, 0.4);
+}
+
+/* Ajustes para móviles */
+@media (max-width: 992px) {
+    .top-bar { display: none; } /* Ocultamos topbar en móviles para ahorrar espacio */
+    nav ul { gap: 15px; }
+    .logo { font-size: 1.1rem; }
+}
