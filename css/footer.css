@@ -1,32 +1,86 @@
-/* --- Footer --- */
-        footer {
-            background-color: var(--azul-oscuro);
-            color: var(--blanco);
-            padding: 40px 10% 20px;
-            text-align: center;
-        }
+/* --- Footer y Contenido (Tus estilos originales) --- */
+footer {
+    background-color: var(--azul-oscuro);
+    color: var(--blanco);
+    padding: 40px 10% 20px;
+    text-align: center;
+}
 
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            margin-bottom: 30px;
-            text-align: left;
-        }
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    text-align: left;
+}
 
-        .footer-section {
-            flex: 1;
-            min-width: 250px;
-            margin-bottom: 20px;
-        }
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 20px;
+}
 
-        .footer-bottom {
-            border-top: 1px solid #333;
-            padding-top: 20px;
-            font-size: 0.8rem;
-        }
-/* --- BOTÓN WHATSAPP CON ANIMACIÓN DE PULSO --- */
+.footer-bottom {
+    border-top: 1px solid #333;
+    padding-top: 20px;
+    font-size: 0.8rem;
+}
 
+/* --- CARRUSEL DE MARCAS (Actualizado para etiquetas img) --- */
+.brands-carousel {
+    background: #ffffff; /* Fondo blanco para logos a color */
+    padding: 25px 0;
+    overflow: hidden;
+    margin-bottom: 40px;
+    border-radius: 4px;
+}
+
+.brands-track {
+    display: flex;
+    width: calc(250px * 10); /* Ancho total de los slides */
+    animation: scroll-marcas 30s linear infinite;
+}
+
+.slide {
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+}
+
+@keyframes scroll-marcas {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-250px * 5)); }
+}
+
+/* --- ESTILOS ACCESOS RÁPIDOS --- */
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--naranja-rayo);
+}
+
+/* --- BOTÓN WHATSAPP (Tus estilos originales con pulso) --- */
 .btn-wsp {
     position: fixed;
     width: 60px;
@@ -42,36 +96,17 @@
     box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
     z-index: 1000;
     transition: all 0.3s ease;
-    
-    /* Llamada a la animación */
     animation: pulso-wsp 2s infinite;
 }
 
-/* Definición de la animación de ondas */
 @keyframes pulso-wsp {
-    0% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-    }
-    70% {
-        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
-    }
-    100% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-    }
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
 }
 
 .btn-wsp:hover {
     background-color: var(--naranja-rayo);
     transform: scale(1.1);
-    animation: none; /* Se detiene el pulso al poner el mouse encima para mayor claridad */
-}
-
-/* Ajuste para móviles */
-@media (max-width: 768px) {
-    .btn-wsp {
-        width: 55px;
-        height: 55px;
-        line-height: 58px;
-        font-size: 30px;
-    }
+    animation: none;
 }
