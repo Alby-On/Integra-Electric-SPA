@@ -1,18 +1,20 @@
-function incluirComponentes() {
-            // Cargar Header
-            fetch('header.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('header-placeholder').innerHTML = data;
-                });
 
-            // Cargar Footer
-            fetch('footer.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('footer-placeholder').innerHTML = data;
-                });
+    async function cargarComponentes() {
+        try {
+            // Cargar Header desde la carpeta components
+            const resHeader = await fetch('components/header.html');
+            const htmlHeader = await resHeader.text();
+            document.getElementById('header-placeholder').innerHTML = htmlHeader;
+
+            // Cargar Footer desde la carpeta components
+            const resFooter = await fetch('components/footer.html');
+            const htmlFooter = await resFooter.text();
+            document.getElementById('footer-placeholder').innerHTML = htmlFooter;
+            
+        } catch (error) {
+            console.error("Error cargando los componentes:", error);
         }
+    }
 
-        // Ejecutar la función al cargar la página
-        window.onload = incluirComponentes;
+    // Ejecutar al cargar el DOM
+    document.addEventListener("DOMContentLoaded", cargarComponentes);
