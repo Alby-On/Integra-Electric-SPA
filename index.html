@@ -94,14 +94,72 @@
         </div>
     </section>
 
-    <section id="contacto">
+    <section id="contacto" style="background-color: var(--blanco);">
         <h2>Contacto</h2>
-        <form class="contact-form">
-            <input type="text" placeholder="Nombre completo" required>
-            <input type="email" placeholder="Correo electrónico" required>
-            <textarea rows="5" placeholder="¿En qué podemos ayudarte?" required></textarea>
-            <button type="submit" class="btn-cta" style="border: none; cursor: pointer;">Enviar Mensaje</button>
-        </form>
+        
+        <div class="contact-container">
+            <div class="contact-box">
+                <h3 style="margin-bottom: 20px; color: var(--azul-oscuro);">Envíenos un mensaje</h3>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Nombre completo" required>
+                        <input type="text" placeholder="RUT (Opcional)">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Correo electrónico" required>
+                        <input type="tel" placeholder="Teléfono de contacto" required>
+                    </div>
+                    <select style="padding: 10px; border: 1px solid #ccc; border-radius: 5px; width: 100%;">
+                        <option value="" disabled selected>Tipo de servicio interesado</option>
+                        <option value="residencial">Instalación Residencial</option>
+                        <option value="industrial">Servicio Industrial</option>
+                        <option value="mantenimiento">Mantenimiento / Emergencia</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                    <textarea rows="4" placeholder="Cuéntenos sobre su proyecto o requerimiento..." required></textarea>
+                    <button type="submit" class="btn-cta" style="border: none; cursor: pointer; width: 100%;">ENVIAR SOLICITUD</button>
+                </form>
+            </div>
+
+            <div class="contact-info">
+                <h3 style="margin-bottom: 20px; color: var(--azul-oscuro);">Información de Contacto</h3>
+                
+                <div class="info-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <strong>Teléfono:</strong><br>
+                        <a href="tel:+56985902331" style="color: inherit; text-decoration: none;">+56 9 8590 2331</a>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <strong>Email:</strong><br>
+                        <a href="mailto:giovanni.jara@integraelectric.cl" style="color: inherit; text-decoration: none;">giovanni.jara@integraelectric.cl</a>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fas fa-globe"></i>
+                    <div>
+                        <strong>Sitio Web:</strong><br>
+                        <a href="http://www.integraelectric.cl/" target="_blank" style="color: inherit; text-decoration: none;">www.integraelectric.cl</a>
+                    </div>
+                </div>
+
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3202.44123456789!2d-72.1023456!3d-36.6067890!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzbCsDM2JzI0LjQiUyA3MsKwMDYnMDguNCJX!5e0!3m2!1ses!2scl!4v1700000000000" 
+                        width="100%" 
+                        height="200" 
+                        style="border:0; border-radius: 10px;" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
     </section>
 
     <footer>
