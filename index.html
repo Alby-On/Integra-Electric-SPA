@@ -1,1 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios Eléctricos | Potencia y Confianza</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="css/header.css">
+   <link rel="stylesheet" href="css/hero.css">
+   <link rel="stylesheet" href="css/footer.css">
+</head>
+<body>
 
+    <header>
+        <div class="logo">
+            <i class="fas fa-bolt" style="color: var(--naranja-rayo);"></i> MI<span>ELECTRO</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#elegirnos">Por qué elegirnos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="inicio" class="hero">
+        <h1>Energía Confiable para tu Hogar</h1>
+        <p>Expertos en instalaciones eléctricas residenciales e industriales con los más altos estándares de seguridad.</p>
+        <a href="#contacto" class="btn-cta">Solicitar Presupuesto</a>
+    </section>
+
+    <section id="nosotros">
+        <h2>Sobre Nosotros</h2>
+        <div style="display: flex; align-items: center; gap: 40px; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 300px;">
+                <p>Con más de 15 años de experiencia, nuestra empresa se ha consolidado como líder en soluciones energéticas. Nos apasiona la precisión y la seguridad, valores que reflejamos en cada conexión que realizamos.</p>
+                <br>
+                <p>Nuestra misión es iluminar tus proyectos con eficiencia y tecnología de vanguardia.</p>
+            </div>
+            <div style="flex: 1; min-width: 300px; background: var(--azul-oscuro); height: 200px; border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                <i class="fas fa-hard-hat" style="font-size: 5rem; color: var(--blanco);"></i>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios" style="background-color: white;">
+        <h2>Nuestros Servicios</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-home"></i>
+                <h3>Residencial</h3>
+                <p>Cableado, tableros y reparaciones domésticas.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-industry"></i>
+                <h3>Industrial</h3>
+                <p>Mantenimiento de maquinaria y alta tensión.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-lightbulb"></i>
+                <h3>Iluminación LED</h3>
+                <p>Optimización de consumo y diseño lumínico.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-tools"></i>
+                <h3>Urgencias 24/7</h3>
+                <p>Atención inmediata ante cortos y fallos graves.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="elegirnos" style="background-color: var(--gris-claro);">
+        <h2>¿Por qué elegirnos?</h2>
+        <div class="services-grid">
+            <div style="text-align: center;">
+                <i class="fas fa-user-check" style="color: var(--naranja-rayo); font-size: 2.5rem;"></i>
+                <h4>Técnicos Certificados</h4>
+            </div>
+            <div style="text-align: center;">
+                <i class="fas fa-shield-alt" style="color: var(--naranja-rayo); font-size: 2.5rem;"></i>
+                <h4>Seguridad Garantizada</h4>
+            </div>
+            <div style="text-align: center;">
+                <i class="fas fa-hand-holding-usd" style="color: var(--naranja-rayo); font-size: 2.5rem;"></i>
+                <h4>Precios Justos</h4>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <form class="contact-form">
+            <input type="text" placeholder="Nombre completo" required>
+            <input type="email" placeholder="Correo electrónico" required>
+            <textarea rows="5" placeholder="¿En qué podemos ayudarte?" required></textarea>
+            <button type="submit" class="btn-cta" style="border: none; cursor: pointer;">Enviar Mensaje</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>MI<span>ELECTRO</span></h3>
+                <p>Tu aliado eléctrico de confianza.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Enlaces</h4>
+                <p>Aviso de Privacidad</p>
+                <p>Términos de Servicio</p>
+            </div>
+            <div class="footer-section">
+                <h4>Síguenos</h4>
+                <div style="display: flex; gap: 15px; font-size: 1.5rem;">
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 MiElectro Servicios. Todos los derechos reservados.
+        </div>
+    </footer>
+
+</body>
+</html>
