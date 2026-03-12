@@ -1,21 +1,78 @@
-/* --- Secciones Generales --- */
-        section {
-            padding: 80px 10% 40px;
-        }
+/* --- ESTILOS POR QUÉ ELEGIRNOS --- */
 
-        h2 {
-            text-align: center;
-            margin-bottom: 40px;
-            font-size: 2.5rem;
-            color: var(--azul-oscuro);
-            position: relative;
-        }
+#elegirnos {
+    background-color: var(--azul-oscuro); /* Fondo oscuro para contrastar con Servicios */
+    color: var(--blanco);
+    padding: 80px 10%;
+}
 
-        h2::after {
-            content: '';
-            width: 60px;
-            height: 4px;
-            background: var(--naranja-rayo);
-            display: block;
-            margin: 10px auto;
-        }
+#elegirnos h2 {
+    color: var(--blanco);
+}
+
+#elegirnos h2::after {
+    background: var(--rojo-logo); /* Cambiamos el color de la línea para resaltar */
+}
+
+.benefits-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.benefit-item {
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.benefit-item:hover {
+    transform: translateY(-5px);
+}
+
+.benefit-icon {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 180, 0, 0.1); /* Fondo naranja muy sutil */
+    border: 2px solid var(--naranja-rayo);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    transition: all 0.3s ease;
+}
+
+.benefit-item:hover .benefit-icon {
+    background: var(--naranja-rayo);
+}
+
+.benefit-icon i {
+    font-size: 2.2rem;
+    color: var(--naranja-rayo);
+}
+
+.benefit-item:hover .benefit-icon i {
+    color: var(--azul-oscuro);
+}
+
+.benefit-item h4 {
+    font-size: 1.25rem;
+    margin-bottom: 15px;
+    color: var(--naranja-rayo);
+    text-transform: uppercase;
+}
+
+.benefit-item p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #cbd5e0; /* Gris claro para lectura suave sobre fondo oscuro */
+}
+
+/* Ajuste para pantallas pequeñas */
+@media (max-width: 768px) {
+    #elegirnos {
+        padding: 60px 5%;
+    }
+}
