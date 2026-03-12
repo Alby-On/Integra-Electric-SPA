@@ -1,8 +1,8 @@
 /* Variables de color basadas en el logo */
 :root {
-    --azul-oscuro: #0f1221; /* Fondo del círculo */
-    --naranja-rayo: #ffb400; /* Color del rayo */
-    --rojo-logo: #f15a42;    /* Color de las barras de la 'E' */
+    --azul-oscuro: #0f1221;
+    --naranja-rayo: #ffb400;
+    --rojo-logo: #f15a42;
     --blanco: #ffffff;
     --gris-claro: #f4f4f4;
 }
@@ -12,28 +12,26 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    scroll-behavior: smooth; /* Para que el salto a las secciones sea fluido */
+    scroll-behavior: smooth;
 }
 
 body {
     line-height: 1.6;
     color: #333;
-    /* AJUSTE DE ESPACIO PARA EL HEADER (TopBar + NavBar) */
-    padding-top: 115px; 
+    /* ELIMINAMOS EL PADDING: Esto permite que el Hero suba hasta arriba */
+    padding-top: 0 !important; 
+    margin: 0;
+    overflow-x: hidden;
 }
 
 /* --- AJUSTE DE NAVEGACIÓN --- */
-/* Evita que el header tape los títulos al hacer clic en los enlaces del menú */
+/* Mantenemos esto para que al navegar el Header no tape los títulos de las secciones */
 section {
     scroll-margin-top: 115px;
 }
 
 /* --- RESPONSIVIDAD DEL HEADER --- */
-/* Como en móviles la TopBar desaparece, reducimos el espacio superior */
 @media (max-width: 992px) {
-    body {
-        padding-top: 75px;
-    }
     section {
         scroll-margin-top: 75px;
     }
@@ -46,13 +44,14 @@ h2 {
     font-size: 2.5rem;
     color: var(--azul-oscuro);
     position: relative;
+    text-transform: uppercase;
 }
 
 h2::after {
     content: '';
     width: 60px;
     height: 4px;
-    background: var(--naranja-rayo);
+    background: var(--rojo-logo); /* Cambiado a rojo para mejor contraste */
     display: block;
     margin: 10px auto;
 }
@@ -60,4 +59,28 @@ h2::after {
 a {
     text-decoration: none;
     transition: 0.3s;
+}
+
+/* --- BOTÓN WHATSAPP (Centralizado) --- */
+.btn-wsp {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    line-height: 63px;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 35px;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
+    z-index: 1000;
+    animation: pulso-wsp 2s infinite;
+}
+
+@keyframes pulso-wsp {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
 }
