@@ -1,20 +1,63 @@
 /* Variables de color basadas en el logo */
-        :root {
-            --azul-oscuro: #0f1221; /* Fondo del círculo */
-            --naranja-rayo: #ffb400; /* Color del rayo */
-            --rojo-logo: #f15a42;    /* Color de las barras de la 'E' */
-            --blanco: #ffffff;
-            --gris-claro: #f4f4f4;
-        }
+:root {
+    --azul-oscuro: #0f1221; /* Fondo del círculo */
+    --naranja-rayo: #ffb400; /* Color del rayo */
+    --rojo-logo: #f15a42;    /* Color de las barras de la 'E' */
+    --blanco: #ffffff;
+    --gris-claro: #f4f4f4;
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth; /* Para que el salto a las secciones sea fluido */
+}
 
-        body {
-            line-height: 1.6;
-            color: #333;
-        }
+body {
+    line-height: 1.6;
+    color: #333;
+    /* AJUSTE DE ESPACIO PARA EL HEADER (TopBar + NavBar) */
+    padding-top: 115px; 
+}
+
+/* --- AJUSTE DE NAVEGACIÓN --- */
+/* Evita que el header tape los títulos al hacer clic en los enlaces del menú */
+section {
+    scroll-margin-top: 115px;
+}
+
+/* --- RESPONSIVIDAD DEL HEADER --- */
+/* Como en móviles la TopBar desaparece, reducimos el espacio superior */
+@media (max-width: 992px) {
+    body {
+        padding-top: 75px;
+    }
+    section {
+        scroll-margin-top: 75px;
+    }
+}
+
+/* --- ESTILOS GENERALES --- */
+h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    color: var(--azul-oscuro);
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    width: 60px;
+    height: 4px;
+    background: var(--naranja-rayo);
+    display: block;
+    margin: 10px auto;
+}
+
+a {
+    text-decoration: none;
+    transition: 0.3s;
+}
