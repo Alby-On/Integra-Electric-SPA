@@ -1,9 +1,48 @@
-/* --- Footer y Contenido (Tus estilos originales) --- */
+/* --- Carrusel de Marcas (Posicionado sobre el footer) --- */
+.brands-carousel {
+    background: #ffffff; /* Fondo blanco para logos a color */
+    padding: 25px 0;
+    overflow: hidden;
+    margin-bottom: 0; /* Eliminado el margen para que se pegue al footer */
+    border-radius: 0; /* Quitamos radio para unión plana */
+    border-top: 1px solid #eee; 
+    display: flex;
+    align-items: center;
+}
+
+.brands-track {
+    display: flex;
+    width: calc(250px * 10); 
+    animation: scroll-marcas 30s linear infinite;
+}
+
+.slide {
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.slide img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+}
+
+@keyframes scroll-marcas {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-250px * 5)); }
+}
+
+/* --- Footer y Contenido --- */
 footer {
     background-color: var(--azul-oscuro);
     color: var(--blanco);
     padding: 40px 10% 20px;
     text-align: center;
+    margin-top: 0; /* Asegura que no haya espacio arriba */
+    border-top: 4px solid var(--naranja-rayo); /* Línea de unión con el carrusel */
 }
 
 .footer-content {
@@ -26,40 +65,7 @@ footer {
     font-size: 0.8rem;
 }
 
-/* --- CARRUSEL DE MARCAS (Actualizado para etiquetas img) --- */
-.brands-carousel {
-    background: #ffffff; /* Fondo blanco para logos a color */
-    padding: 25px 0;
-    overflow: hidden;
-    margin-bottom: 40px;
-    border-radius: 4px;
-}
-
-.brands-track {
-    display: flex;
-    width: calc(250px * 10); /* Ancho total de los slides */
-    animation: scroll-marcas 30s linear infinite;
-}
-
-.slide {
-    width: 250px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.slide img {
-    height: 50px;
-    width: auto;
-    object-fit: contain;
-}
-
-@keyframes scroll-marcas {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(calc(-250px * 5)); }
-}
-
-/* --- ESTILOS ACCESOS RÁPIDOS --- */
+/* --- Estilos Accesos Rápidos --- */
 .footer-links {
     list-style: none;
     padding: 0;
@@ -80,7 +86,7 @@ footer {
     color: var(--naranja-rayo);
 }
 
-/* --- BOTÓN WHATSAPP (Tus estilos originales con pulso) --- */
+/* --- Botón WhatsApp con Animación de Pulso --- */
 .btn-wsp {
     position: fixed;
     width: 60px;
@@ -109,4 +115,18 @@ footer {
     background-color: var(--naranja-rayo);
     transform: scale(1.1);
     animation: none;
+}
+
+/* Ajuste para móviles */
+@media (max-width: 768px) {
+    .btn-wsp {
+        width: 55px;
+        height: 55px;
+        line-height: 58px;
+        font-size: 30px;
+    }
+    .footer-content {
+        text-align: center;
+        flex-direction: column;
+    }
 }
