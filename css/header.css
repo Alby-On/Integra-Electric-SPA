@@ -1,5 +1,4 @@
 /* --- HEADER COMPLETO --- */
-
 header {
     width: 100%;
     position: fixed;
@@ -9,9 +8,9 @@ header {
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* Top Bar */
+/* Top Bar: Redes Sociales y Contacto */
 .top-bar {
-    background-color: var(--rojo-logo); /* Color llamativo superior */
+    background-color: var(--rojo-logo); 
     color: white;
     padding: 8px 5%;
     font-size: 0.85rem;
@@ -30,6 +29,7 @@ header {
     text-decoration: none;
     margin-right: 20px;
     transition: opacity 0.3s;
+    font-weight: 500;
 }
 
 .contact-links a:hover {
@@ -41,10 +41,28 @@ header {
     color: var(--naranja-rayo);
 }
 
+/* Iconos de Redes Sociales en Top Bar */
+.social-links-top {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links-top a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-links-top a:hover {
+    color: var(--naranja-rayo);
+    transform: translateY(-2px);
+}
+
 /* Main Navbar */
 .main-header {
     background-color: var(--azul-oscuro);
-    padding: 15px 5%;
+    padding: 10px 5%; /* Reducido un poco para compensar el logo */
     border-bottom: 2px solid var(--naranja-rayo);
 }
 
@@ -56,20 +74,21 @@ header {
     align-items: center;
 }
 
-.logo {
-    color: var(--blanco);
-    font-size: 1.4rem;
-    font-weight: 800;
-    letter-spacing: 1px;
+/* Ajuste para Logo PNG */
+.logo-container {
+    display: flex;
+    align-items: center;
 }
 
-.logo i {
-    color: var(--naranja-rayo);
-    margin-right: 8px;
+.logo-img {
+    height: 60px; /* Ajusta según el tamaño de tu archivo original */
+    width: auto;
+    display: block;
+    transition: transform 0.3s ease;
 }
 
-.logo span {
-    color: var(--naranja-rayo);
+.logo-img:hover {
+    transform: scale(1.05);
 }
 
 /* Menú Centrado */
@@ -111,7 +130,7 @@ nav ul li a:hover {
 
 /* Ajustes para móviles */
 @media (max-width: 992px) {
-    .top-bar { display: none; } /* Ocultamos topbar en móviles para ahorrar espacio */
-    nav ul { gap: 15px; }
-    .logo { font-size: 1.1rem; }
+    .top-bar { display: none; } 
+    nav ul { display: none; } /* Aquí deberías activar un menú hamburguesa */
+    .logo-img { height: 45px; }
 }
