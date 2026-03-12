@@ -1,9 +1,17 @@
-/* --- ESTILOS DE SERVICIOS --- */
+/* --- ESTILOS DE SERVICIOS OPTIMIZADOS --- */
+
+#servicios {
+    max-width: 1200px; /* Limitamos el ancho para que el grid se vea ordenado */
+    margin: 0 auto;    /* Centra la sección completa */
+    padding: 80px 5%;
+}
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
+    /* Forzamos 3 columnas iguales en pantallas grandes */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
+    justify-content: center;
 }
 
 .service-card {
@@ -16,6 +24,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100%; /* Asegura que todas tengan el mismo alto si el texto varía */
 }
 
 .service-card:hover {
@@ -38,7 +47,7 @@
 .service-card h3 {
     color: var(--azul-oscuro);
     margin-bottom: 15px;
-    font-size: 1.4rem;
+    font-size: 1.2rem; /* Ajustado ligeramente para que quepa bien en 3 columnas */
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -49,8 +58,21 @@
     line-height: 1.5;
 }
 
-/* Responsividad extra */
-@media (max-width: 480px) {
+/* --- RESPONSIVIDAD --- */
+
+/* Tablets: Pasamos a 2 columnas */
+@media (max-width: 992px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Móviles: Pasamos a 1 columna */
+@media (max-width: 600px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
     .service-card {
         padding: 30px 20px;
     }
