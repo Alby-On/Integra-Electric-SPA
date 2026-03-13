@@ -1,4 +1,4 @@
-/* --- ESTILOS SECCIÓN NOSOTROS CORREGIDOS (Altura Reducida) --- */
+/* --- ESTILOS SECCIÓN NOSOTROS CORREGIDOS (Imagen Ajustada Internamente) --- */
 
 #nosotros {
     padding: 100px 10%;
@@ -58,7 +58,7 @@
     margin-bottom: 5px;
 }
 
-/* Columna Visual con Slider Ajustado */
+/* Columna Visual */
 .about-visual {
     flex: 1;
     min-width: 320px;
@@ -70,7 +70,6 @@
     position: relative;
     width: 100%;
     max-width: 679px;
-    /* ALTURA AJUSTADA: 350 hace que la imagen sea menos alta y más estilizada */
     aspect-ratio: 679 / 350; 
     background: var(--azul-oscuro);
     border-radius: 20px;
@@ -79,7 +78,6 @@
     margin: 0 auto;
 }
 
-/* El slider-container ahora se expande obligatoriamente */
 .slider-container {
     position: absolute;
     top: 0;
@@ -104,16 +102,24 @@
     z-index: 2;
 }
 
-/* Ajuste forzado de la imagen para llenar el 100% */
+/* --- AJUSTE DE LA IMAGEN DENTRO DE LA CARD --- */
 .slider-container .slide img {
-    width: 100% !important;
-    height: 100% !important;
-    /* El blindaje evita que reglas globales afecten el tamaño */
+    /* Ajustamos la escala para que no toque los bordes */
+    width: 90% !important;  
+    height: 85% !important; 
+    
+    /* Centrado absoluto */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    /* Mantenemos la proporción original de la foto */
+    object-fit: contain !important; 
     max-width: none !important;
     max-height: none !important;
-    object-fit: cover !important; 
-    object-position: center;
     display: block !important;
+    border-radius: 10px; /* Bordes suaves para la foto interna */
 }
 
 /* Casco flotante centrado */
@@ -123,19 +129,18 @@
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 5;
-    font-size: 5rem; /* Reducido un poco para la nueva altura */
+    font-size: 5rem;
     color: rgba(255, 255, 255, 0.1);
     pointer-events: none;
 }
 
-/* Badge de Experiencia Ajustado */
 .experience-badge {
     position: absolute;
-    bottom: -15px; /* Menos profundo */
+    bottom: -15px;
     left: -15px;
     background: var(--naranja-rayo);
     color: var(--azul-oscuro);
-    padding: 15px 25px; /* Más compacto */
+    padding: 15px 25px;
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -145,7 +150,7 @@
 }
 
 .experience-badge .years {
-    font-size: 2rem; /* Reducido de 2.5rem */
+    font-size: 2rem;
     font-weight: 900;
 }
 
@@ -153,26 +158,21 @@
     font-weight: 700;
     line-height: 1.1;
     text-transform: uppercase;
-    font-size: 0.7rem; /* Reducido de 0.8rem */
+    font-size: 0.7rem;
 }
 
 /* Responsividad */
 @media (max-width: 768px) {
-    .about-container {
-        flex-direction: column;
-        text-align: center;
-    }
     .image-placeholder {
-        box-shadow: 10px 10px 0 var(--rojo-logo);
-        width: 100%;
-        aspect-ratio: 679 / 350; /* Mantiene la nueva proporción en móvil */
+        aspect-ratio: 679 / 350;
+    }
+    .slider-container .slide img {
+        width: 95% !important; /* En móviles aprovechamos un poco más el ancho */
+        height: 80% !important;
     }
     .experience-badge {
         left: 50%;
         transform: translateX(-50%);
         bottom: -25px;
-    }
-    .slider-icon {
-        font-size: 4rem;
     }
 }
