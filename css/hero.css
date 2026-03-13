@@ -1,50 +1,74 @@
-/* --- Hero Section --- */
-/* --- Hero Section - SELLADO TOTAL --- */
+/* --- Hero Section - SELLADO TOTAL CON SLIDER --- */
 .hero {
-    /* 1. Eliminamos cualquier margen y forzamos el inicio en 0 */
     margin-top: 0 !important;
     position: relative;
-    
-    /* 2. Ocupamos toda la pantalla visible */
     width: 100%;
     height: 100vh; 
-    
-    /* 3. La imagen de fondo debe empezar desde el borde superior absoluto */
-    background: linear-gradient(rgba(15, 18, 33, 0.8), rgba(15, 18, 33, 0.8)), 
-                url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1350&q=80');
-    background-size: cover;
-    background-position: center top; /* Forzamos a que la imagen se pegue arriba */
-    background-repeat: no-repeat;
-    
-    /* 4. Centrado de contenido */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     color: var(--blanco);
-    
-    /* 5. Este es el espacio para que el Header no tape el texto, 
-       pero el FONDO sí llegue hasta arriba */
     padding-top: 115px; 
-    
-    /* 6. Eliminamos posibles bordes o espacios */
     border: none;
     outline: none;
+    overflow: hidden; /* Vital para que las fotos no se escapen */
+}
+
+/* Contenedor de las imágenes de fondo */
+.hero-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2; /* Queda al fondo de todo */
+}
+
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out; /* Transición suave */
+}
+
+.hero-slide.active {
+    opacity: 1;
+}
+
+/* Capa de sellado/oscurecimiento (Overlay) */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Mantenemos tu degradado azul exacto */
+    background: linear-gradient(rgba(15, 18, 33, 0.8), rgba(15, 18, 33, 0.8));
+    z-index: -1; /* Encima de las fotos, debajo del texto */
 }
 
 .hero h1 {
     font-size: 3.5rem;
-    margin-top: 0; /* Reset de margen para evitar empujes internos */
+    margin-top: 0; 
     margin-bottom: 1rem;
     text-transform: uppercase;
     font-weight: 800;
+    position: relative; /* Asegura lectura correcta sobre overlay */
 }
 
 .hero p {
     font-size: 1.2rem;
     margin-bottom: 2rem;
     max-width: 700px;
+    position: relative;
 }
 
 .btn-cta {
@@ -58,6 +82,7 @@
     transition: all 0.3s ease;
     border: none;
     cursor: pointer;
+    position: relative;
 }
 
 .btn-cta:hover {
@@ -70,35 +95,14 @@
 /* --- Secciones Generales --- */
 section {
     padding: 80px 10% 40px;
-    /* Esto ayuda a que el fondo de la sección pegue bien con la anterior */
     overflow: hidden; 
 }
 
-h2 {
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 2.5rem;
-    color: var(--azul-oscuro);
-    position: relative;
-    text-transform: uppercase;
-}
-
-h2::after {
-    content: '';
-    width: 60px;
-    height: 4px;
-    background: var(--rojo-logo); /* Cambiado a rojo para consistencia */
-    display: block;
-    margin: 10px auto;
-}
-
-/* Ajuste específico para móviles */
 /* Ajuste para móviles */
 @media (max-width: 992px) {
     .hero {
         padding-top: 75px;
         height: 100vh;
-        }
     }
     .hero h1 {
         font-size: 2.2rem;
