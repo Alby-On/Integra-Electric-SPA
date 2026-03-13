@@ -73,18 +73,25 @@ function startHeroSlider() {
 document.addEventListener('DOMContentLoaded', startHeroSlider);
 
 
-const hamburger = document.getElementById("hamburger");
-const navMenu = document.getElementById("nav-menu");
+document.addEventListener("DOMContentLoaded", () => {
+    const hamburger = document.querySelector("#hamburger");
+    const navMenu = document.querySelector("#nav-menu");
 
-hamburger.addEventListener("click", () => {
-    // Abre/Cierra el menú
-    navMenu.classList.toggle("active");
-    
-    // Opcional: Animación de "X" para el botón
-    hamburger.classList.toggle("is-active"); 
+    if (hamburger && navMenu) {
+        hamburger.addEventListener("click", (e) => {
+            e.preventDefault(); // Evita comportamientos extraños
+            navMenu.classList.toggle("active");
+            
+            // Log para que pruebes en la consola del móvil si está funcionando
+            console.log("Menú clickeado, clase active:", navMenu.classList.contains("active"));
+        });
+
+        // Cerrar al hacer clic en un enlace
+        const navLinks = document.querySelectorAll(".nav-menu a");
+        navLinks.forEach(link => {
+            link.addEventListener("click", () => {
+                navMenu.classList.remove("active");
+            });
+        });
+    }
 });
-
-// Cerrar el menú al hacer clic en un enlace (importante en móviles)
-document.querySelectorAll(".nav-menu a").forEach(n => n.addEventListener("click", () => {
-    navMenu.classList.remove("active");
-}));
