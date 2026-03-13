@@ -1,15 +1,29 @@
-/* --- ESTILOS SECCIÓN NOSOTROS CORREGIDOS (Imagen Ajustada Internamente) --- */
+/* --- ESTILOS SECCIÓN NOSOTROS FINAL (Centrado y Ajustado) --- */
 
 #nosotros {
     padding: 100px 10%;
     background-color: var(--blanco);
+    /* Forzamos que la sección sea un contenedor vertical para centrar el h2 */
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+/* Ajuste del Título: Ahora queda arriba de todo y centrado */
+#nosotros h2 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 60px; /* Espacio extra antes del contenido */
 }
 
 .about-container {
     display: flex;
-    align-items: center;
+    align-items: center; /* Centra verticalmente el texto con la card */
+    justify-content: center; /* Centra horizontalmente el conjunto en la página */
     gap: 60px;
     flex-wrap: wrap;
+    max-width: 1200px; /* Mantiene la sección elegante en pantallas grandes */
+    width: 100%;
 }
 
 .about-content {
@@ -63,7 +77,8 @@
     flex: 1;
     min-width: 320px;
     position: relative;
-    display: block;
+    display: flex;
+    justify-content: center; /* Asegura que la card esté centrada en su columna */
 }
 
 .image-placeholder {
@@ -75,7 +90,7 @@
     border-radius: 20px;
     box-shadow: 20px 20px 0 var(--rojo-logo); 
     overflow: hidden; 
-    margin: 0 auto;
+    margin: 0; /* Quitamos el auto para que mande el contenedor padre */
 }
 
 .slider-container {
@@ -102,27 +117,21 @@
     z-index: 2;
 }
 
-/* --- AJUSTE DE LA IMAGEN DENTRO DE LA CARD --- */
+/* AJUSTE DE LA IMAGEN DENTRO DE LA CARD */
 .slider-container .slide img {
-    /* Ajustamos la escala para que no toque los bordes */
     width: 90% !important;  
     height: 85% !important; 
-    
-    /* Centrado absoluto */
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    
-    /* Mantenemos la proporción original de la foto */
     object-fit: contain !important; 
     max-width: none !important;
     max-height: none !important;
     display: block !important;
-    border-radius: 10px; /* Bordes suaves para la foto interna */
+    border-radius: 10px;
 }
 
-/* Casco flotante centrado */
 .slider-icon {
     position: absolute;
     top: 50%;
@@ -163,12 +172,18 @@
 
 /* Responsividad */
 @media (max-width: 768px) {
+    #nosotros {
+        padding: 60px 5%;
+    }
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .mission-box {
+        text-align: left;
+    }
     .image-placeholder {
         aspect-ratio: 679 / 350;
-    }
-    .slider-container .slide img {
-        width: 95% !important; /* En móviles aprovechamos un poco más el ancho */
-        height: 80% !important;
     }
     .experience-badge {
         left: 50%;
