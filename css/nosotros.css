@@ -63,22 +63,69 @@
     flex: 1;
     min-width: 320px;
     position: relative;
+    /* Aseguramos que el contenedor visual no limite la altura del slider */
+    display: flex;
+    flex-direction: column;
 }
 
+/* Ajuste de la caja contenedora para que no colapse */
 .image-placeholder {
     background: var(--azul-oscuro);
-    height: 400px;
+    width: 100%;
+    max-width: 679px;
+    /* Eliminamos altura fija y usamos la proporción deseada */
+    aspect-ratio: 679 / 416; 
     border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 20px 20px 0 var(--rojo-logo); /* Efecto de diseño moderno */
+    position: relative;
+    box-shadow: 20px 20px 0 var(--rojo-logo); 
     transition: transform 0.3s;
+    overflow: hidden; /* Importante para el slider */
 }
 
-.image-placeholder i {
-    font-size: 8rem;
-    color: rgba(255, 255, 255, 0.1);
+/* --- SECCIÓN NOSOTROS: SLIDER INTEGRADO (679x416) --- */
+
+.slider-container {
+    position: absolute; /* Ocupa todo el espacio del placeholder */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block; /* Evita conflictos de alineación flex */
+}
+
+/* Estilo para los contenedores de cada imagen */
+.slider-container .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+}
+
+.slider-container .slide.active {
+    opacity: 1;
+}
+
+.slider-container .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    object-position: center;
+}
+
+/* El icono del casco */
+.slider-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    font-size: 6rem;
+    color: rgba(255, 255, 255, 0.15);
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
+    pointer-events: none;
 }
 
 .experience-badge {
@@ -118,73 +165,16 @@
         text-align: left;
     }
     .image-placeholder {
-        height: 300px;
+        /* Mantenemos la proporción incluso en móvil */
+        aspect-ratio: 679 / 416;
         box-shadow: 10px 10px 0 var(--rojo-logo);
     }
     .experience-badge {
         left: 50%;
         transform: translateX(-50%);
+        bottom: -30px;
     }
-}
-
-/* --- SECCIÓN NOSOTROS: SLIDER OPTIMIZADO (679x416) --- */
-
-.slider-container {
-    position: relative;
-    width: 100%;
-    /* Establece la relación de aspecto exacta */
-    aspect-ratio: 679 / 416; 
-    max-width: 679px;
-    margin: 0 auto;
-    overflow: hidden;
-    background: var(--azul-oscuro); /* Fondo sólido mientras cargan las fotos */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 12px; /* Opcional: para suavizar las esquinas del slider */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-/* Estilo para los contenedores de cada imagen */
-.slider-container .slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 1.2s ease-in-out; /* Transición un poco más suave */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.slider-container .slide.active {
-    opacity: 1;
-}
-
-/* Ajuste de la imagen para que rellene el área 679x416 sin estirarse */
-.slider-container .slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; 
-    object-position: center;
-}
-
-/* El icono del casco flotando sutilmente con mejor visibilidad */
-.slider-icon {
-    position: absolute;
-    z-index: 5;
-    font-size: 4.5rem; /* Ajustado ligeramente para la nueva proporción */
-    color: rgba(255, 255, 255, 0.3);
-    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
-    pointer-events: none;
-}
-
-/* Ajuste para pantallas pequeñas */
-@media (max-width: 768px) {
-    .slider-container {
-        aspect-ratio: 679 / 416; /* Mantiene la proporción en móviles */
-        width: 100%;
+    .slider-icon {
+        font-size: 4rem;
     }
 }
