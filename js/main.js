@@ -40,3 +40,20 @@ window.addEventListener('scroll', () => {
         }
     });
 });
+
+
+function initNosotrosSlider() {
+    const slides = document.querySelectorAll('.slider-container .slide');
+    let current = 0;
+
+    if (slides.length > 0) {
+        setInterval(() => {
+            slides[current].classList.remove('active');
+            current = (current + 1) % slides.length;
+            slides[current].classList.add('active');
+        }, 4000); // Cambia cada 4 segundos
+    }
+}
+
+// Se ejecuta cuando la web termina de cargar
+document.addEventListener('DOMContentLoaded', initNosotrosSlider);
