@@ -73,32 +73,33 @@ function startHeroSlider() {
 document.addEventListener('DOMContentLoaded', startHeroSlider);
 
 
-document.addEventListener("DOMContentLoaded", function() {
+const initMobileMenu = () => {
     const hamburger = document.getElementById("hamburger");
     const navMenu = document.getElementById("nav-menu");
 
-    // Verificación de seguridad en consola
-    if (!hamburger || !navMenu) {
-        console.warn("Error: No se encontró el ID 'hamburger' o 'nav-menu' en el HTML.");
-        return;
-    }
+    if (hamburger && navMenu) {
+        // Quitamos cualquier evento previo para no duplicar
+        hamburger.replaceWith(hamburger.cloneNode(true));
+        const newHamburger = document.getElementById("hamburger");
 
-    hamburger.addEventListener("click", function(e) {
-        e.preventDefault();
-        // Alterna la clase para mostrar el menú
-        navMenu.classList.toggle("active");
-        // Alterna la animación de la X (opcional según el CSS anterior)
-        hamburger.classList.toggle("is-active");
-        
-        console.log("Menú activado:", navMenu.classList.contains("active"));
-    });
-
-    // Cerrar el menú automáticamente al hacer clic en una opción
-    const links = document.querySelectorAll(".nav-menu a");
-    links.forEach(link => {
-        link.addEventListener("click", () => {
-            navMenu.classList.remove("active");
-            hamburger.classList.remove("is-active");
+        newHamburger.addEventListener("click", () => {
+            navMenu.classList.toggle("active");
+            newHamburger.classList.toggle("is-active");
+            console.log("Menú toggle: ", navMenu.classList.contains("active"));
         });
-    });
-});
+
+        // Cerrar al clickear opciones
+        document.querySelectorAll(".nav-menu a").forEach(link => {
+            link.addEventListener("click", () => {
+                navMenu.classList.remove("active");
+                newHamburger.classList.remove("is-active");
+            });
+        });
+    } else {
+        // Si no lo encuentra, reintenta en 500ms (útil si el header carga dinámicamente)
+        setTimeout(initMobileMenu, 500);
+    }
+};
+
+// Ejecutar al cargar la página
+document.addEventListener("DOMContentLoaded", initMobileMenu);
