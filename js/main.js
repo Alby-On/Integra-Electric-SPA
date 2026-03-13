@@ -18,3 +18,25 @@
 
     // Ejecutar al cargar el DOM
     document.addEventListener("DOMContentLoaded", cargarComponentes);
+
+window.addEventListener('scroll', () => {
+    let current = '';
+    const sections = document.querySelectorAll('section'); // Asegúrate de que tus secciones usen la etiqueta <section>
+    const navLinks = document.querySelectorAll('nav ul li a');
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        // Ajuste de 150px para que el cambio ocurra un poco antes de llegar arriba
+        if (pageYOffset >= (sectionTop - 150)) {
+            current = section.getAttribute('id');
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').includes(current)) {
+            link.classList.add('active');
+        }
+    });
+});
