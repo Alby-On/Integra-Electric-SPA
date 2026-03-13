@@ -58,42 +58,42 @@
     margin-bottom: 5px;
 }
 
-/* --- COLUMNA VISUAL: SOLUCIÓN DEFINITIVA --- */
-
+/* Columna Visual con Slider Corregido */
 .about-visual {
     flex: 1;
     min-width: 320px;
     position: relative;
+    display: block;
 }
 
 .image-placeholder {
     position: relative;
     width: 100%;
     max-width: 679px;
-    margin: 0 auto;
-    
-    /* Forzamos la relación de aspecto aquí */
-    aspect-ratio: 679 / 416;
-    
+    aspect-ratio: 679 / 416; /* Mantiene la proporción 679x416 */
     background: var(--azul-oscuro);
-    border-radius: 15px;
-    border: 10px solid var(--azul-oscuro); 
-    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 20px 20px 0 var(--rojo-logo); 
+    overflow: hidden; 
+    margin: 0 auto;
 }
 
+/* El slider-container ahora se expande obligatoriamente */
 .slider-container {
     position: absolute;
-    /* Esto obliga al slider a expandirse a todo el tamaño del placeholder */
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
 }
 
 .slider-container .slide {
     position: absolute;
-    inset: 0; /* Cubre todo el contenedor */
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
     opacity: 0;
     transition: opacity 1.2s ease-in-out;
 }
@@ -103,15 +103,16 @@
     z-index: 2;
 }
 
+/* Ajuste forzado de la imagen para llenar el 100% */
 .slider-container .slide img {
-    width: 100%;
-    height: 100%;
-    /* Clave: rellena el 100% del alto proporcional */
-    object-fit: cover; 
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* Llena el espacio sin deformar */
     object-position: center;
     display: block;
 }
 
+/* Casco flotante centrado */
 .slider-icon {
     position: absolute;
     top: 50%;
@@ -119,35 +120,35 @@
     transform: translate(-50%, -50%);
     z-index: 5;
     font-size: 6rem;
-    color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.1);
     pointer-events: none;
 }
 
 .experience-badge {
     position: absolute;
-    bottom: -15px;
-    left: -15px;
+    bottom: -20px;
+    left: -20px;
     background: var(--naranja-rayo);
     color: var(--azul-oscuro);
-    padding: 18px 25px;
+    padding: 20px 30px;
     border-radius: 10px;
     display: flex;
     align-items: center;
-    gap: 12px;
-    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    gap: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
     z-index: 10;
 }
 
 .experience-badge .years {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     font-weight: 900;
 }
 
 .experience-badge .text {
     font-weight: 700;
-    line-height: 1.1;
+    line-height: 1.2;
     text-transform: uppercase;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
 }
 
 /* Responsividad */
@@ -157,12 +158,13 @@
         text-align: center;
     }
     .image-placeholder {
+        box-shadow: 10px 10px 0 var(--rojo-logo);
+        width: 100%;
         aspect-ratio: 679 / 416;
-        border-width: 6px;
     }
     .experience-badge {
         left: 50%;
         transform: translateX(-50%);
-        bottom: -25px;
+        bottom: -30px;
     }
 }
