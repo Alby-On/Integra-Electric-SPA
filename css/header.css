@@ -149,3 +149,55 @@ nav ul li a:hover {
     .logo-text { font-size: 1rem; }
     .logo-text span { font-size: 0.75rem; }
 }
+
+
+
+
+/* Estilos base para el botón (oculto por defecto) */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    gap: 5px;
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #333; /* Cambia al color de tu preferencia */
+    transition: 0.3s;
+}
+
+/* --- Responsive para Móviles (Max 768px) --- */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex; /* Mostrar botón solo en móvil */
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%; /* Escondido a la izquierda */
+        top: 70px; /* Ajusta según la altura de tu header */
+        flex-direction: column;
+        background-color: #fff;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-menu.active {
+        left: 0; /* Entra a la pantalla */
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        padding: 20px 0;
+    }
+
+    .nav-menu ul li {
+        margin: 15px 0;
+    }
+}
