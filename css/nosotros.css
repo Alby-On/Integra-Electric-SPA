@@ -126,3 +126,50 @@
         transform: translateX(-50%);
     }
 }
+
+/* SLIDER */
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 350px; /* Ajusta según la altura de tu diseño original */
+    overflow: hidden;
+    background: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo para tus divs de slide */
+.slider-container .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider-container .slide.active {
+    opacity: 1;
+}
+
+.slider-container .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Importante: rellena la card sin estirar la imagen */
+}
+
+/* El icono del casco flotando sutilmente */
+.slider-icon {
+    position: absolute;
+    z-index: 5;
+    font-size: 5rem;
+    color: rgba(255, 255, 255, 0.4);
+    pointer-events: none;
+}
