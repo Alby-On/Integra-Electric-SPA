@@ -158,3 +158,29 @@ footer {
     display: flex;
     align-items: center;
 }
+.social-links-footer {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-links-footer a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo sutil */
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+/* Efecto Hover: Cambia al color naranja de tu marca */
+.social-links-footer a:hover {
+    background-color: var(--naranja-rayo);
+    color: var(--azul-oscuro);
+    transform: translateY(-3px);
+}
