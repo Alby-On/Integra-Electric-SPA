@@ -63,6 +63,7 @@ header {
     background-color: var(--azul-oscuro);
     padding: 10px 5%;
     border-bottom: 2px solid var(--naranja-rayo);
+    position: relative; /* Asegura posicionamiento de elementos hijos */
 }
 
 .header-container {
@@ -78,11 +79,11 @@ header {
     display: flex;
     align-items: center;
     text-decoration: none;
-    gap: 12px; /* Espacio entre la imagen y el texto */
+    gap: 12px;
 }
 
 .logo-img {
-    height: 50px; /* Tamaño controlado del icono */
+    height: 50px;
     width: auto;
     display: block;
     transition: transform 0.3s ease;
@@ -98,13 +99,13 @@ header {
 }
 
 .logo-text span {
-    color: var(--naranja-rayo); /* El texto 'ELECTRIC SPA' en naranja */
-    display: block; /* Opcional: ponerlo debajo si el nombre es muy largo */
+    color: var(--naranja-rayo);
+    display: block;
     font-size: 0.9rem;
     font-weight: 600;
 }
 
-/* Menú */
+/* Menú Escritorio */
 nav ul {
     display: flex;
     list-style: none;
@@ -125,7 +126,6 @@ nav ul li a:hover {
     color: var(--naranja-rayo);
 }
 
-/* Botón de Contacto Enmarcado */
 .nav-cta a {
     background-color: transparent;
     border: 2px solid var(--rojo-logo);
@@ -141,19 +141,7 @@ nav ul li a:hover {
     box-shadow: 0 0 10px rgba(241, 90, 66, 0.4);
 }
 
-/* Ajustes para móviles */
-@media (max-width: 992px) {
-    .top-bar { display: none; } 
-    nav ul { display: none; } 
-    .logo-img { height: 40px; }
-    .logo-text { font-size: 1rem; }
-    .logo-text span { font-size: 0.75rem; }
-}
-
-
-
-
-/* Estilos base para el botón (oculto por defecto) */
+/* Botón Hamburguesa */
 .hamburger {
     display: none;
     flex-direction: column;
@@ -161,43 +149,59 @@ nav ul li a:hover {
     background: transparent;
     border: none;
     gap: 5px;
+    z-index: 1100; /* Siempre visible sobre el menú */
 }
 
 .hamburger .bar {
     width: 25px;
     height: 3px;
-    background-color: #333; /* Cambia al color de tu preferencia */
+    background-color: var(--blanco); /* Cambiado a blanco para que resalte en el azul */
     transition: 0.3s;
 }
 
-/* --- Responsive para Móviles (Max 768px) --- */
-@media (max-width: 768px) {
+/* --- RESPONSIVE --- */
+
+@media (max-width: 992px) {
+    .top-bar { display: none; }
+    .logo-img { height: 40px; }
+    .logo-text { font-size: 1rem; }
+    .logo-text span { font-size: 0.75rem; }
+    
     .hamburger {
-        display: flex; /* Mostrar botón solo en móvil */
+        display: flex;
     }
 
+    /* Ajuste del menú para tablets y móviles */
     .nav-menu {
         position: fixed;
-        left: -100%; /* Escondido a la izquierda */
-        top: 70px; /* Ajusta según la altura de tu header */
+        left: -100%;
+        top: 0; /* Cambiado a 0 para cubrir toda la pantalla o ajusta según necesites */
         flex-direction: column;
-        background-color: #fff;
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
-        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        background-color: var(--azul-oscuro);
+        width: 80%; /* No ocupa todo el ancho para un look más moderno */
+        height: 100vh;
+        justify-content: center;
+        transition: 0.4s ease;
+        box-shadow: 5px 0 15px rgba(0,0,0,0.3);
+        z-index: 1050;
     }
 
     .nav-menu.active {
-        left: 0; /* Entra a la pantalla */
+        left: 0;
     }
 
     .nav-menu ul {
+        display: flex; /* Se vuelve a mostrar pero en columna */
         flex-direction: column;
-        padding: 20px 0;
+        gap: 30px;
     }
 
-    .nav-menu ul li {
-        margin: 15px 0;
+    .nav-menu ul li a {
+        font-size: 1.2rem;
     }
 }
+
+/* Animación opcional para la X del botón (Si usas la clase 'is-active' en JS) */
+.hamburger.is-active .bar:nth-child(2) { opacity: 0; }
+.hamburger.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.hamburger.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
