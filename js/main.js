@@ -57,3 +57,17 @@ function initNosotrosSlider() {
 
 // Se ejecuta cuando la web termina de cargar
 document.addEventListener('DOMContentLoaded', initNosotrosSlider);
+
+
+function startHeroSlider() {
+    const slides = document.querySelectorAll('.hero-slide');
+    let current = 0;
+
+    setInterval(() => {
+        slides[current].classList.remove('active');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('active');
+    }, 5000); // 5000ms = 5 segundos
+}
+
+document.addEventListener('DOMContentLoaded', startHeroSlider);
