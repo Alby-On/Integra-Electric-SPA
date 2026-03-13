@@ -135,3 +135,26 @@ footer {
         flex-direction: column;
     }
 }
+/* Contenedor para alinear logo y texto */
+.footer-logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Espacio entre el logo y el texto */
+    margin-bottom: 15px; /* Espacio con el párrafo de abajo */
+}
+
+/* Tamaño del logo reducido */
+.footer-logo {
+    height: 35px; /* Tamaño reducido según pediste */
+    width: auto;
+    display: block;
+}
+
+/* Ajuste opcional para el título en el footer */
+.footer-section h3 {
+    margin: 0;
+    font-size: 1.3rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+}
