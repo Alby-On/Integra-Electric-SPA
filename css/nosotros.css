@@ -1,4 +1,4 @@
-/* --- ESTILOS SECCIÓN NOSOTROS CORREGIDOS Y BLINDADOS --- */
+/* --- ESTILOS SECCIÓN NOSOTROS CORREGIDOS (Altura Reducida) --- */
 
 #nosotros {
     padding: 100px 10%;
@@ -58,7 +58,7 @@
     margin-bottom: 5px;
 }
 
-/* Columna Visual con Slider Blindado */
+/* Columna Visual con Slider Ajustado */
 .about-visual {
     flex: 1;
     min-width: 320px;
@@ -70,8 +70,8 @@
     position: relative;
     width: 100%;
     max-width: 679px;
-    /* Mantiene la proporción 679x416 sin depender del contenido */
-    aspect-ratio: 679 / 416; 
+    /* ALTURA AJUSTADA: 350 hace que la imagen sea menos alta y más estilizada */
+    aspect-ratio: 679 / 350; 
     background: var(--azul-oscuro);
     border-radius: 20px;
     box-shadow: 20px 20px 0 var(--rojo-logo); 
@@ -79,12 +79,11 @@
     margin: 0 auto;
 }
 
+/* El slider-container ahora se expande obligatoriamente */
 .slider-container {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
     width: 100% !important;
     height: 100% !important;
     display: block;
@@ -105,53 +104,56 @@
     z-index: 2;
 }
 
-/* Ajuste forzado: Ignora reglas globales de max-width o height:auto */
+/* Ajuste forzado de la imagen para llenar el 100% */
 .slider-container .slide img {
     width: 100% !important;
     height: 100% !important;
-    max-width: none !important; /* IMPORTANTE: Resetea reglas globales */
-    max-height: none !important; /* IMPORTANTE: Resetea reglas globales */
+    /* El blindaje evita que reglas globales afecten el tamaño */
+    max-width: none !important;
+    max-height: none !important;
     object-fit: cover !important; 
     object-position: center;
     display: block !important;
 }
 
+/* Casco flotante centrado */
 .slider-icon {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 5;
-    font-size: 6rem;
+    font-size: 5rem; /* Reducido un poco para la nueva altura */
     color: rgba(255, 255, 255, 0.1);
     pointer-events: none;
 }
 
+/* Badge de Experiencia Ajustado */
 .experience-badge {
     position: absolute;
-    bottom: -20px;
-    left: -20px;
+    bottom: -15px; /* Menos profundo */
+    left: -15px;
     background: var(--naranja-rayo);
     color: var(--azul-oscuro);
-    padding: 20px 30px;
+    padding: 15px 25px; /* Más compacto */
     border-radius: 10px;
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 12px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
     z-index: 10;
 }
 
 .experience-badge .years {
-    font-size: 2.5rem;
+    font-size: 2rem; /* Reducido de 2.5rem */
     font-weight: 900;
 }
 
 .experience-badge .text {
     font-weight: 700;
-    line-height: 1.2;
+    line-height: 1.1;
     text-transform: uppercase;
-    font-size: 0.8rem;
+    font-size: 0.7rem; /* Reducido de 0.8rem */
 }
 
 /* Responsividad */
@@ -163,11 +165,14 @@
     .image-placeholder {
         box-shadow: 10px 10px 0 var(--rojo-logo);
         width: 100%;
-        aspect-ratio: 679 / 416;
+        aspect-ratio: 679 / 350; /* Mantiene la nueva proporción en móvil */
     }
     .experience-badge {
         left: 50%;
         transform: translateX(-50%);
-        bottom: -30px;
+        bottom: -25px;
+    }
+    .slider-icon {
+        font-size: 4rem;
     }
 }
