@@ -1,4 +1,4 @@
-/* --- ESTILOS SECCIÓN NOSOTROS CORREGIDOS --- */
+/* --- ESTILOS SECCIÓN NOSOTROS CORREGIDOS Y BLINDADOS --- */
 
 #nosotros {
     padding: 100px 10%;
@@ -58,7 +58,7 @@
     margin-bottom: 5px;
 }
 
-/* Columna Visual con Slider Corregido */
+/* Columna Visual con Slider Blindado */
 .about-visual {
     flex: 1;
     min-width: 320px;
@@ -70,7 +70,8 @@
     position: relative;
     width: 100%;
     max-width: 679px;
-    aspect-ratio: 679 / 416; /* Mantiene la proporción 679x416 */
+    /* Mantiene la proporción 679x416 sin depender del contenido */
+    aspect-ratio: 679 / 416; 
     background: var(--azul-oscuro);
     border-radius: 20px;
     box-shadow: 20px 20px 0 var(--rojo-logo); 
@@ -78,11 +79,12 @@
     margin: 0 auto;
 }
 
-/* El slider-container ahora se expande obligatoriamente */
 .slider-container {
     position: absolute;
     top: 0;
     left: 0;
+    right: 0;
+    bottom: 0;
     width: 100% !important;
     height: 100% !important;
     display: block;
@@ -103,16 +105,17 @@
     z-index: 2;
 }
 
-/* Ajuste forzado de la imagen para llenar el 100% */
+/* Ajuste forzado: Ignora reglas globales de max-width o height:auto */
 .slider-container .slide img {
     width: 100% !important;
     height: 100% !important;
-    object-fit: cover !important; /* Llena el espacio sin deformar */
+    max-width: none !important; /* IMPORTANTE: Resetea reglas globales */
+    max-height: none !important; /* IMPORTANTE: Resetea reglas globales */
+    object-fit: cover !important; 
     object-position: center;
-    display: block;
+    display: block !important;
 }
 
-/* Casco flotante centrado */
 .slider-icon {
     position: absolute;
     top: 50%;
