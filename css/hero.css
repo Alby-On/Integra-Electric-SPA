@@ -80,7 +80,7 @@
     max-width: 700px;
 }
 
-/* --- ESTILO DE LOS BOTONES (btn-cta y btn-primary) --- */
+/* --- ESTILO DEL BOTÓN CON PULSO --- */
 .hero-content .btn-cta, 
 .hero-content .btn-primary {
     display: inline-block;
@@ -94,7 +94,11 @@
     transition: all 0.3s ease;
     border: none;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(241, 90, 66, 0.3);
+    position: relative; /* Necesario para el pulso */
+    z-index: 1;
+    
+    /* ACTIVAMOS LA ANIMACIÓN DE PULSO */
+    animation: pulso-hero 2s infinite;
 }
 
 .hero-content .btn-cta:hover, 
@@ -102,7 +106,22 @@
     background-color: var(--naranja-rayo);
     color: var(--azul-oscuro);
     transform: translateY(-3px);
+    animation: none; /* Opcional: detiene el pulso al poner el mouse encima */
     box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* --- ANIMACIÓN DE PULSO --- */
+@keyframes pulso-hero {
+    0% {
+        box-shadow: 0 0 0 0 rgba(241, 90, 66, 0.7);
+    }
+    70% {
+        /* La sombra se expande y se desvanece */
+        box-shadow: 0 0 0 15px rgba(241, 90, 66, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(241, 90, 66, 0);
+    }
 }
 
 /* --- FLECHA PARA BAJAR (SCROLL DOWN) --- */
