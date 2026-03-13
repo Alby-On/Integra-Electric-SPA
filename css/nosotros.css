@@ -127,21 +127,25 @@
     }
 }
 
-/* SLIDER */
+/* --- SECCIÓN NOSOTROS: SLIDER OPTIMIZADO (679x416) --- */
 
 .slider-container {
     position: relative;
     width: 100%;
-    height: 100%;
-    min-height: 350px; /* Ajusta según la altura de tu diseño original */
+    /* Establece la relación de aspecto exacta */
+    aspect-ratio: 679 / 416; 
+    max-width: 679px;
+    margin: 0 auto;
     overflow: hidden;
-    background: #f4f4f4;
+    background: var(--azul-oscuro); /* Fondo sólido mientras cargan las fotos */
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 12px; /* Opcional: para suavizar las esquinas del slider */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilo para tus divs de slide */
+/* Estilo para los contenedores de cada imagen */
 .slider-container .slide {
     position: absolute;
     top: 0;
@@ -149,7 +153,7 @@
     width: 100%;
     height: 100%;
     opacity: 0;
-    transition: opacity 1s ease-in-out;
+    transition: opacity 1.2s ease-in-out; /* Transición un poco más suave */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -159,17 +163,28 @@
     opacity: 1;
 }
 
+/* Ajuste de la imagen para que rellene el área 679x416 sin estirarse */
 .slider-container .slide img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Importante: rellena la card sin estirar la imagen */
+    object-fit: cover; 
+    object-position: center;
 }
 
-/* El icono del casco flotando sutilmente */
+/* El icono del casco flotando sutilmente con mejor visibilidad */
 .slider-icon {
     position: absolute;
     z-index: 5;
-    font-size: 5rem;
-    color: rgba(255, 255, 255, 0.4);
+    font-size: 4.5rem; /* Ajustado ligeramente para la nueva proporción */
+    color: rgba(255, 255, 255, 0.3);
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
     pointer-events: none;
+}
+
+/* Ajuste para pantallas pequeñas */
+@media (max-width: 768px) {
+    .slider-container {
+        aspect-ratio: 679 / 416; /* Mantiene la proporción en móviles */
+        width: 100%;
+    }
 }
