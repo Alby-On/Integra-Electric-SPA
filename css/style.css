@@ -84,3 +84,31 @@ a {
     70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
     100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
 }
+
+/* Clase que se activará automáticamente */
+nav ul li a.active {
+    color: var(--naranja-rayo) !important;
+    position: relative;
+}
+
+/* Línea decorativa debajo del texto activo */
+nav ul li a.active::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--naranja-rayo);
+    transition: all 0.3s ease;
+}
+
+/* Evitamos que el botón de contacto (CTA) tenga la línea, ya que tiene su propio recuadro */
+.nav-cta a.active::after {
+    display: none;
+}
+
+.nav-cta a.active {
+    background-color: var(--rojo-logo) !important;
+    border-color: var(--naranja-rayo) !important;
+}
