@@ -57,37 +57,54 @@
     display: flex;
     justify-content: center;
 }
+/* --- APLICAR ESTO PARA SOLUCIONAR EL LLENADO --- */
 
-/* --- CORRECCIÓN DEFINITIVA: EVITAR DEFORMACIÓN --- */
+.image-placeholder {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    aspect-ratio: 16 / 10; 
+    background: var(--azul-oscuro);
+    border-radius: 25px;
+    box-shadow: 25px 25px 0 rgba(224, 30, 38, 0.15); 
+    overflow: hidden; /* Esto recortará lo que sobre del 'cover' */
+}
+
+.slider-container .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    display: flex; /* Ayuda a centrar el contenido */
+    align-items: center;
+    justify-content: center;
+}
+
 .slider-container .slide img {
-    /* Forzamos a que ocupe el 100% del contenedor azul */
-    width: 100% !important;  
-    height: 100% !important; 
+    /* Forzamos que la imagen sea SIEMPRE más grande o igual al contenedor */
+    width: 100% !important;
+    height: 100% !important;
+    min-width: 100% !important;
+    min-height: 100% !important;
+    
+    /* Posicionamiento absoluto para control total */
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
     
-    /* 'cover' es la clave: llena el espacio sin estirarse ni aplastarse */
+    /* 'cover' para que no se aplaste y llene todo */
     object-fit: cover !important; 
+    object-position: center; /* Asegura que el centro de la foto sea lo visible */
     
-    /* Quitamos el radio de la imagen para que use el del contenedor padre */
     border-radius: 0; 
-    transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+    transition: transform 0.8s ease-in-out;
 }
 
-/* Hover con zoom que no deforma */
+/* El hover ahora solo escala, no mueve */
 .slider-container:hover .slide.active img {
     transform: translate(-50%, -50%) scale(1.1);
-}
-
-/* Ajuste móvil para asegurar que llene el marco */
-@media (max-width: 768px) {
-    .slider-container .slide img {
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: cover !important;
-    }
 }
 /* BADGE DE EXPERIENCIA */
 .experience-badge {
