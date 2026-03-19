@@ -123,3 +123,88 @@
     .project-card, .project-card.reverse { flex-direction: column; padding: 20px; }
     .project-visual { min-width: 100%; aspect-ratio: 16 / 9; }
 }
+/* ================= MOBILE OPTIMIZATION ================= */
+@media (max-width: 768px) {
+
+    #portafolio {
+        padding: 60px 5%;
+    }
+
+    .portfolio-container {
+        gap: 50px;
+    }
+
+    .project-card {
+        gap: 25px;
+        padding: 15px;
+        border-radius: 20px;
+    }
+
+    .project-visual {
+        min-width: 100%;
+        aspect-ratio: 16 / 9;
+        border-radius: 15px;
+    }
+
+    .project-info h3 {
+        font-size: 1.6rem;
+        margin: 15px 0;
+    }
+
+    .project-story {
+        margin: 15px 0;
+        padding: 12px 15px;
+    }
+
+    .project-specs {
+        padding: 15px;
+        gap: 10px;
+    }
+
+    .project-specs li {
+        font-size: 0.75rem;
+    }
+
+    /* Botones más pequeños en móvil */
+    .project-slider button {
+        width: 38px;
+        height: 38px;
+    }
+
+    .project-slider .prev { left: 10px; }
+    .project-slider .next { right: 10px; }
+
+    .slider-dots {
+        bottom: 10px;
+    }
+}
+
+/* ================= EXTRA SMALL (CELULARES CHICOS) ================= */
+@media (max-width: 480px) {
+
+    #portafolio {
+        padding: 40px 4%;
+    }
+
+    .project-card {
+        gap: 20px;
+        padding: 12px;
+    }
+
+    .project-info h3 {
+        font-size: 1.4rem;
+    }
+
+    .project-tag {
+        font-size: 0.7rem;
+        padding: 6px 14px;
+    }
+
+    .project-specs {
+        flex-direction: column;
+    }
+
+    .project-specs li strong {
+        font-size: 0.65rem;
+    }
+}
