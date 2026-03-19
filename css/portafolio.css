@@ -1,11 +1,11 @@
-/* --- PORTAFOLIO DE PROYECTOS - PREMIUM +15% IMAGEN --- */
+/* --- PORTAFOLIO DE PROYECTOS - AJUSTE DE PROPORCIÓN (-10%) --- */
 #portafolio {
     background: linear-gradient(180deg, var(--gris-claro) 0%, #e9ecef 100%);
     padding: 100px 10%;
 }
 
 .portfolio-container {
-    max-width: 1400px; /* Un poco más ancho para albergar imágenes grandes */
+    max-width: 1300px; /* Reducimos ligeramente para que no se estire tanto */
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -15,7 +15,7 @@
 .project-card {
     display: flex;
     align-items: stretch;
-    gap: 60px;
+    gap: 50px; /* Gap un poco más cerrado para armonizar */
     background: var(--blanco);
     padding: 40px;
     border-radius: 30px;
@@ -32,10 +32,10 @@
     border-right: 8px solid var(--naranja-rayo);
 }
 
-/* --- AJUSTE +15% EN TAMAÑO DE IMAGEN --- */
+/* --- IMAGEN AJUSTADA AL 1.3 (Equilibrio 10% menor) --- */
 .project-visual {
-    flex: 1.8; /* Aumentado de 1.5 a 1.8 (+15% aprox del ancho total) */
-    min-width: 400px;
+    flex: 1.3; /* Bajamos de 1.8 a 1.3 para reducir el ancho visual de la foto */
+    min-width: 350px;
     position: relative;
     border-radius: 20px;
     overflow: hidden;
@@ -52,19 +52,19 @@
 
 /* --- RESTAURACIÓN DEL SISTEMA DE SLIDES --- */
 .p-slide {
-    position: absolute; /* Una encima de la otra */
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: 0; /* Ocultas por defecto */
+    opacity: 0;
     visibility: hidden;
     transition: opacity 0.8s ease-in-out, visibility 0.8s;
     z-index: 1;
 }
 
 .p-slide.active {
-    opacity: 1; /* Solo la activa es visible */
+    opacity: 1;
     visibility: visible;
     z-index: 2;
 }
@@ -80,48 +80,27 @@
     transform: scale(1.1);
 }
 
-/* Botones y Dots */
-.project-slider button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10; /* Siempre por encima de las fotos */
-    background: rgba(15, 18, 33, 0.5);
-    backdrop-filter: blur(5px);
-    color: white;
-    border: 1px solid rgba(255,255,255,0.3);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all 0.3s;
+/* --- INFO DEL PROYECTO (Ahora tiene más aire) --- */
+.project-info { 
+    flex: 1; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
 }
 
-.project-slider .prev { left: 20px; }
-.project-slider .next { right: 20px; }
-
-.slider-dots {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 8px;
-    z-index: 10;
-}
-
-/* Resto de estilos (Story, Specs, Tags) se mantienen igual */
-.project-info { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+/* Resto de estilos se mantienen para conservar la coherencia visual */
 .project-tag { background: linear-gradient(135deg, var(--naranja-rayo), #ff9800); color: var(--azul-oscuro); padding: 8px 20px; border-radius: 50px; font-weight: 800; text-transform: uppercase; align-self: flex-start; }
-.project-info h3 { font-size: 2.4rem; color: var(--azul-oscuro); margin: 20px 0; }
+.project-info h3 { font-size: 2.2rem; color: var(--azul-oscuro); margin: 20px 0; line-height: 1.2; }
 .project-story { margin: 25px 0; border-left: 4px solid var(--naranja-rayo); padding: 15px 20px; background: rgba(244, 244, 244, 0.5); }
 .project-specs { display: flex; flex-wrap: wrap; gap: 15px; list-style: none; padding: 20px; background: var(--azul-oscuro); border-radius: 15px; }
 .project-specs li { color: white; font-size: 0.85rem; }
 .project-specs li strong { color: var(--naranja-rayo); display: block; font-size: 0.7rem; }
 
+/* Responsive */
 @media (max-width: 992px) {
-    .project-card, .project-card.reverse { flex-direction: column; padding: 20px; }
+    .project-card, .project-card.reverse { flex-direction: column; padding: 25px; gap: 30px; }
     .project-visual { min-width: 100%; aspect-ratio: 16 / 9; }
+    .project-info h3 { font-size: 1.8rem; }
 }
 /* ================= MOBILE OPTIMIZATION ================= */
 @media (max-width: 768px) {
