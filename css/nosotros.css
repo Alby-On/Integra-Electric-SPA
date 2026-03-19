@@ -1,4 +1,4 @@
-/* --- SECCIÓN NOSOTROS PREMIUM (Restaurada y Potenciada) --- */
+/* --- SECCIÓN NOSOTROS PREMIUM (Final Consolidado) --- */
 
 #nosotros {
     padding: 100px 10%;
@@ -57,8 +57,8 @@
     display: flex;
     justify-content: center;
 }
-/* --- APLICAR ESTO PARA SOLUCIONAR EL LLENADO --- */
 
+/* --- SOLUCIÓN DE LLENADO DE IMAGEN --- */
 .image-placeholder {
     position: relative;
     width: 100%;
@@ -67,7 +67,15 @@
     background: var(--azul-oscuro);
     border-radius: 25px;
     box-shadow: 25px 25px 0 rgba(224, 30, 38, 0.15); 
-    overflow: hidden; /* Esto recortará lo que sobre del 'cover' */
+    overflow: hidden; 
+}
+
+.slider-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
 }
 
 .slider-container .slide {
@@ -76,36 +84,40 @@
     left: 0;
     width: 100% !important;
     height: 100% !important;
-    display: flex; /* Ayuda a centrar el contenido */
+    display: flex;
     align-items: center;
     justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1.2s ease-in-out;
+}
+
+.slider-container .slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
 }
 
 .slider-container .slide img {
-    /* Forzamos que la imagen sea SIEMPRE más grande o igual al contenedor */
     width: 100% !important;
     height: 100% !important;
     min-width: 100% !important;
     min-height: 100% !important;
-    
-    /* Posicionamiento absoluto para control total */
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
-    
-    /* 'cover' para que no se aplaste y llene todo */
     object-fit: cover !important; 
-    object-position: center; /* Asegura que el centro de la foto sea lo visible */
-    
+    object-position: center; 
     border-radius: 0; 
     transition: transform 0.8s ease-in-out;
 }
 
-/* El hover ahora solo escala, no mueve */
+/* Hover interactivo */
 .slider-container:hover .slide.active img {
     transform: translate(-50%, -50%) scale(1.1);
 }
+
 /* BADGE DE EXPERIENCIA */
 .experience-badge {
     position: absolute;
@@ -169,5 +181,10 @@
     .mission-box {
         flex-direction: column;
         text-align: center;
+    }
+
+    .slider-container .slide img {
+        width: 100% !important;
+        height: 100% !important;
     }
 }
