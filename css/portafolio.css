@@ -149,3 +149,44 @@
         align-self: center;
     }
 }
+/* Estilo para la narrativa del proyecto */
+.project-story {
+    margin: 20px 0;
+    border-left: 3px solid var(--gris-claro);
+    padding-left: 20px;
+}
+
+.project-story p {
+    font-size: 0.95rem !important;
+    margin-bottom: 12px !important;
+    line-height: 1.5 !important;
+}
+
+.project-story i {
+    color: var(--rojo-logo);
+    width: 20px;
+}
+
+/* Ficha técnica inferior */
+.project-specs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    list-style: none;
+    padding: 15px;
+    background: var(--gris-claro);
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.project-specs li {
+    font-size: 0.85rem;
+    color: var(--azul-oscuro);
+}
+
+.project-specs li strong {
+    color: var(--rojo-logo);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    display: block;
+}
