@@ -1,8 +1,8 @@
-/* --- SECCIÓN NOSOTROS PREMIUM (Color & Mobile Optimized) --- */
+/* --- SECCIÓN NOSOTROS PREMIUM (Restaurada y Potenciada) --- */
 
 #nosotros {
     padding: 100px 10%;
-    background: linear-gradient(180deg, var(--blanco) 0%, var(--gris-claro) 100%); /* Fondo con profundidad */
+    background: linear-gradient(180deg, var(--blanco) 0%, var(--gris-claro) 100%);
     display: flex;
     flex-direction: column;
     align-items: center; 
@@ -12,10 +12,8 @@
     width: 100%;
     text-align: center;
     margin-bottom: 60px;
-    position: relative;
 }
 
-/* Subrayado decorativo para el título */
 #nosotros h2::after {
     content: '';
     display: block;
@@ -30,7 +28,7 @@
     display: flex;
     align-items: center; 
     justify-content: center; 
-    gap: 80px; /* Aumentado para mejor respiro visual */
+    gap: 80px;
     flex-wrap: wrap;
     max-width: 1200px;
     width: 100%;
@@ -44,54 +42,14 @@
 .brand-subtitle {
     background: linear-gradient(90deg, var(--rojo-logo), var(--naranja-rayo));
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; /* Texto en gradiente */
+    -webkit-text-fill-color: transparent;
     font-size: 1.3rem;
     text-transform: uppercase;
     margin-bottom: 25px;
     font-weight: 800;
-    letter-spacing: 1px;
 }
 
-.about-content p {
-    margin-bottom: 20px;
-    color: #333; /* Un poco más oscuro para legibilidad */
-    font-size: 1.1rem;
-    line-height: 1.9;
-}
-
-.about-mission {
-    margin-top: 40px;
-}
-
-.mission-box {
-    display: flex;
-    align-items: center; /* Centrado para mejor look */
-    gap: 20px;
-    background: var(--blanco); /* Blanco sobre fondo gris */
-    padding: 25px;
-    border-radius: 20px;
-    border-left: 8px solid var(--naranja-rayo);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease;
-}
-
-.mission-box:hover {
-    transform: translateX(10px);
-}
-
-.mission-box i {
-    font-size: 2rem;
-    color: var(--rojo-logo); /* Color más vibrante al icono */
-}
-
-.mission-box strong {
-    display: block;
-    font-size: 1.2rem;
-    color: var(--azul-oscuro);
-    margin-bottom: 5px;
-}
-
-/* Columna Visual */
+/* --- COLUMNA VISUAL Y CARD DE IMÁGENES --- */
 .about-visual {
     flex: 1;
     min-width: 320px;
@@ -107,22 +65,54 @@
     aspect-ratio: 16 / 10; 
     background: var(--azul-oscuro);
     border-radius: 25px;
-    /* Sombra con color corporativo */
-    box-shadow: 25px 25px 0 rgba(224, 30, 38, 0.1); 
+    box-shadow: 25px 25px 0 rgba(224, 30, 38, 0.15); 
     overflow: hidden; 
 }
 
-/* Borde interno brillante para la card */
-.image-placeholder::before {
-    content: '';
+/* RESTAURACIÓN DEL SISTEMA DE SLIDES */
+.slider-container {
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    border: 2px solid rgba(255,255,255,0.05);
-    border-radius: 25px;
-    z-index: 5;
-    pointer-events: none;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
 }
 
+.slider-container .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1.2s ease-in-out;
+}
+
+.slider-container .slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+
+/* Ajuste de la imagen dentro de la Card */
+.slider-container .slide img {
+    width: 90% !important;  
+    height: 85% !important; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: contain !important; 
+    border-radius: 15px;
+    transition: transform 0.5s ease;
+}
+
+.slider-container:hover .slide.active img {
+    transform: translate(-50%, -50%) scale(1.05);
+}
+
+/* BADGE DE EXPERIENCIA */
 .experience-badge {
     position: absolute;
     bottom: -20px;
@@ -142,61 +132,48 @@
 .experience-badge .years {
     font-size: 2.5rem;
     font-weight: 900;
-    line-height: 1;
 }
 
-/* OPTIMIZACIÓN MÓVIL CRÍTICA */
-@media (max-width: 768px) {
-    #nosotros {
-        padding: 80px 7%;
-    }
-    
-    #nosotros h2 {
-        margin-bottom: 40px;
-    }
+/* CAJA DE MISIÓN */
+.mission-box {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: var(--blanco);
+    padding: 25px;
+    border-radius: 20px;
+    border-left: 8px solid var(--naranja-rayo);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    margin-top: 40px;
+}
 
+/* --- OPTIMIZACIÓN MÓVIL --- */
+@media (max-width: 768px) {
+    #nosotros { padding: 80px 7%; }
+    
     .about-container {
         gap: 50px;
         flex-direction: column;
     }
 
-    .about-content {
-        text-align: center;
-        order: 2; /* El texto baja */
-    }
-
-    .about-visual {
-        order: 1; /* La imagen sube en móvil para impacto visual rápido */
-        width: 100%;
-        margin-bottom: 30px;
-    }
-
-    .brand-subtitle {
-        font-size: 1.1rem;
-        justify-content: center;
-    }
-
-    .mission-box {
-        flex-direction: column;
-        text-align: center;
-        padding: 30px 20px;
-    }
+    .about-content { text-align: center; order: 2; }
+    .about-visual { order: 1; width: 100%; margin-bottom: 40px; }
 
     .image-placeholder {
-        box-shadow: 15px 15px 0 var(--rojo-logo); /* Sombra más pequeña en móvil */
-        width: 90%; /* Evita que choque con los bordes */
+        max-width: 100%;
+        box-shadow: 15px 15px 0 var(--rojo-logo);
     }
 
     .experience-badge {
         left: 50%;
         transform: translateX(-50%);
         bottom: -30px;
-        width: 80%;
+        width: 85%;
         justify-content: center;
-        padding: 15px;
     }
     
-    .experience-badge .years {
-        font-size: 2rem;
+    .mission-box {
+        flex-direction: column;
+        text-align: center;
     }
 }
