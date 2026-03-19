@@ -1,192 +1,165 @@
-/* --- PORTAFOLIO DE PROYECTOS - ACTUALIZADO +20% --- */
+/* --- PORTAFOLIO DE PROYECTOS - PREMIUM ANIMATED --- */
 #portafolio {
-    background-color: var(--gris-claro);
+    background: linear-gradient(180deg, var(--gris-claro) 0%, #e9ecef 100%);
     padding: 100px 10%;
 }
 
 .portfolio-container {
-    max-width: 1300px; /* Aumentamos el ancho máximo para dar espacio al crecimiento */
+    max-width: 1300px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 80px;
+    gap: 100px; /* Más espacio para que las animaciones respiren */
 }
 
+/* Animación de entrada para las cards */
 .project-card {
     display: flex;
-    align-items: stretch; /* Cambiado a stretch para que ambas columnas igualen altura */
-    gap: 60px; /* Aumentamos el gap para aire visual */
+    align-items: stretch;
+    gap: 60px;
     background: var(--blanco);
-    padding: 40px; /* Aumentamos el padding de la card */
-    border-radius: 25px;
-    box-shadow: 0 15px 45px rgba(0,0,0,0.07);
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 0 20px 50px rgba(15, 18, 33, 0.05);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Borde decorativo lateral con tus colores corporativos */
+    border-left: 8px solid var(--rojo-logo);
 }
 
 .project-card.reverse {
     flex-direction: row-reverse;
+    border-left: none;
+    border-right: 8px solid var(--naranja-rayo);
 }
 
-/* Slider Interno - Agrandado un 20% en proporción */
+/* Efecto Hover en la Card completa */
+.project-card:hover {
+    transform: translateY(-10px) scale(1.01);
+    box-shadow: 0 30px 60px rgba(15, 18, 33, 0.12);
+}
+
+/* Slider Interno con Zoom al Hover */
 .project-visual {
-    /* 1. Le damos más prioridad a la imagen (flex: 1.5 en lugar de 1) */
     flex: 1.5; 
     min-width: 350px;
     position: relative;
     border-radius: 20px;
     overflow: hidden;
-    
-    /* 2. Cambiamos la proporción a 4:3 para ganar un 20-25% más de altura visual */
-    aspect-ratio: 4 / 3; 
-    
+    aspect-ratio: 4 / 3;
     background: var(--azul-oscuro);
-}
-
-.project-slider {
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
-
-.p-slide {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-.p-slide.active {
-    opacity: 1;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
 .p-slide img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Mantiene la imagen perfecta sin importar su origen */
+    object-fit: cover;
+    transition: transform 6s linear; /* Zoom lento continuo */
 }
 
-/* Botones de navegación */
-.project-slider button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(15, 18, 33, 0.7);
+.project-card:hover .p-slide img {
+    transform: scale(1.1); /* Zoom al pasar el mouse */
+}
+
+/* --- ESTILOS DE TEXTO E INTERACTIVIDAD --- */
+.project-tag {
+    background: linear-gradient(135deg, var(--naranja-rayo), #ff9800);
+    color: var(--azul-oscuro);
+    padding: 8px 20px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    border-radius: 50px;
+    text-transform: uppercase;
+    display: inline-block;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 12px rgba(255, 152, 0, 0.3);
+}
+
+.project-info h3 {
+    font-size: 2.4rem;
+    color: var(--azul-oscuro);
+    margin: 20px 0;
+    line-height: 1.1;
+    transition: color 0.3s ease;
+}
+
+.project-card:hover h3 {
+    color: var(--rojo-logo);
+}
+
+.project-story {
+    margin: 25px 0;
+    border-left: 4px solid var(--naranja-rayo);
+    padding-left: 20px;
+    background: rgba(244, 244, 244, 0.5);
+    border-radius: 0 15px 15px 0;
+    padding: 15px 20px;
+}
+
+/* Ficha técnica con más color */
+.project-specs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    list-style: none;
+    padding: 20px;
+    background: var(--azul-oscuro); /* Cambiamos a oscuro para contraste */
+    border-radius: 15px;
+    margin-top: 25px;
+}
+
+.project-specs li {
+    font-size: 0.85rem;
     color: white;
-    border: none;
-    padding: 12px;
-    cursor: pointer;
-    z-index: 5;
-    border-radius: 50%;
-    width: 45px;
-    height: 45px;
-    transition: 0.3s;
+}
+
+.project-specs li strong {
+    color: var(--naranja-rayo);
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    margin-bottom: 4px;
+}
+
+/* Botones del slider mejorados */
+.project-slider button {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.3);
+    width: 50px;
+    height: 50px;
 }
 
 .project-slider button:hover {
     background: var(--rojo-logo);
+    transform: translateY(-50%) scale(1.1);
 }
 
-.project-slider .prev { left: 15px; }
-.project-slider .next { right: 15px; }
-
-/* Contenido del Texto */
-.project-info {
-    flex: 1; /* El texto ahora ocupa un poco menos que la imagen */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+/* Dots dinámicos */
+.dot {
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.4);
+    border: 2px solid transparent;
 }
 
-.project-tag {
+.dot.active {
     background: var(--naranja-rayo);
-    color: var(--azul-oscuro);
-    padding: 6px 18px;
-    font-size: 0.85rem;
-    font-weight: 700;
-    border-radius: 50px;
-    text-transform: uppercase;
-    align-self: flex-start;
-}
-
-.project-info h3 {
-    font-size: 2.2rem; /* Texto un poco más grande */
-    color: var(--azul-oscuro);
-    margin: 20px 0;
-}
-
-.project-info p {
-    color: #555;
-    line-height: 1.8;
-    margin-bottom: 25px;
-    font-size: 1.05rem;
-}
-
-.project-details {
-    list-style: none;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-}
-
-.project-details li {
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--azul-oscuro);
+    border-color: white;
+    width: 30px; /* Efecto píldora */
+    border-radius: 10px;
 }
 
 /* Responsivo */
 @media (max-width: 992px) {
     .project-card, .project-card.reverse {
         flex-direction: column;
-        text-align: center;
-        padding: 30px;
+        border-left: none;
+        border-right: none;
+        border-top: 8px solid var(--rojo-logo);
+        padding: 25px;
     }
-    .project-visual {
-        width: 100%;
-        aspect-ratio: 16 / 9; /* En móviles volvemos a una altura menor para no ocupar toda la pantalla */
-    }
-    .project-tag {
-        align-self: center;
-    }
-}
-/* Estilo para la narrativa del proyecto */
-.project-story {
-    margin: 20px 0;
-    border-left: 3px solid var(--gris-claro);
-    padding-left: 20px;
-}
-
-.project-story p {
-    font-size: 0.95rem !important;
-    margin-bottom: 12px !important;
-    line-height: 1.5 !important;
-}
-
-.project-story i {
-    color: var(--rojo-logo);
-    width: 20px;
-}
-
-/* Ficha técnica inferior */
-.project-specs {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    list-style: none;
-    padding: 15px;
-    background: var(--gris-claro);
-    border-radius: 10px;
-    margin-top: 20px;
-}
-
-.project-specs li {
-    font-size: 0.85rem;
-    color: var(--azul-oscuro);
-}
-
-.project-specs li strong {
-    color: var(--rojo-logo);
-    text-transform: uppercase;
-    font-size: 0.75rem;
-    display: block;
+    .project-info h3 { font-size: 1.8rem; }
 }
