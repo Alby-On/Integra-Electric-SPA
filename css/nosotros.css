@@ -58,9 +58,9 @@
     justify-content: center;
 }
 
-/* --- AJUSTE PARA QUE LA IMAGEN LLENE EL CUADRO --- */
+/* --- CORRECCIÓN DEFINITIVA: EVITAR DEFORMACIÓN --- */
 .slider-container .slide img {
-    /* Cambiamos porcentajes a 100% para que llene el marco azul */
+    /* Forzamos a que ocupe el 100% del contenedor azul */
     width: 100% !important;  
     height: 100% !important; 
     position: absolute;
@@ -68,20 +68,20 @@
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
     
-    /* CAMBIO CLAVE: 'cover' en lugar de 'contain' para que no queden espacios vacíos */
+    /* 'cover' es la clave: llena el espacio sin estirarse ni aplastarse */
     object-fit: cover !important; 
     
-    /* Quitamos el border-radius de la imagen para que use el del contenedor padre */
+    /* Quitamos el radio de la imagen para que use el del contenedor padre */
     border-radius: 0; 
     transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
 }
 
-/* Ajuste del Hover: Zoom más elegante */
+/* Hover con zoom que no deforma */
 .slider-container:hover .slide.active img {
     transform: translate(-50%, -50%) scale(1.1);
 }
 
-/* OPTIMIZACIÓN MÓVIL: Mantenemos la proporción pero aseguramos el llenado */
+/* Ajuste móvil para asegurar que llene el marco */
 @media (max-width: 768px) {
     .slider-container .slide img {
         width: 100% !important;
