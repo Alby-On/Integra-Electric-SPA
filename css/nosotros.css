@@ -58,77 +58,35 @@
     justify-content: center;
 }
 
-.image-placeholder {
-    position: relative;
-    width: 100%;
-    max-width: 600px;
-    aspect-ratio: 16 / 10; 
-    background: var(--azul-oscuro);
-    border-radius: 25px;
-    box-shadow: 25px 25px 0 rgba(224, 30, 38, 0.15); 
-    /* Mantenemos el overflow: hidden para que el zoom no se salga de la card */
-    overflow: hidden; 
-}
-
-.slider-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100% !important;
-    height: 100% !important;
-}
-
-.slider-container .slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100% !important;
-    height: 100% !important;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 1.2s ease-in-out;
-}
-
-.slider-container .slide.active {
-    opacity: 1;
-    visibility: visible;
-    z-index: 2;
-}
-
-/* --- AJUSTE CLAVE PARA IMAGEN COMPLETA --- */
+/* --- AJUSTE PARA QUE LA IMAGEN LLENE EL CUADRO --- */
 .slider-container .slide img {
-    /* Reducimos un poco el tamaño base (de 90% a 85%) 
-       para dejar un "margen de seguridad" para el zoom */
-    width: 85% !important;  
-    height: 80% !important; 
+    /* Cambiamos porcentajes a 100% para que llene el marco azul */
+    width: 100% !important;  
+    height: 100% !important; 
     position: absolute;
     top: 50%;
     left: 50%;
-    /* El transform inicial DEBE incluir el centrado */
     transform: translate(-50%, -50%) scale(1);
     
-    /* contain asegura que la imagen quepa entera sin deformarse */
-    object-fit: contain !important; 
-    border-radius: 15px;
-    transition: transform 0.6s ease-out;
+    /* CAMBIO CLAVE: 'cover' en lugar de 'contain' para que no queden espacios vacíos */
+    object-fit: cover !important; 
+    
+    /* Quitamos el border-radius de la imagen para que use el del contenedor padre */
+    border-radius: 0; 
+    transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
 }
 
-/* Ajuste del Hover: El zoom ahora no sobrepasa el 100% del contenedor */
+/* Ajuste del Hover: Zoom más elegante */
 .slider-container:hover .slide.active img {
-    /* Mantenemos el translate para no perder el centrado */
     transform: translate(-50%, -50%) scale(1.1);
 }
 
-/* OPTIMIZACIÓN MÓVIL: Evita que la sombra desplace la imagen fuera de la pantalla */
+/* OPTIMIZACIÓN MÓVIL: Mantenemos la proporción pero aseguramos el llenado */
 @media (max-width: 768px) {
-    .image-placeholder {
-        max-width: 90%; /* Damos margen para que la sombra no se corte */
-        box-shadow: 15px 15px 0 rgba(224, 30, 38, 0.2);
-    }
-    
     .slider-container .slide img {
-        width: 88% !important;
-        height: 85% !important;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
     }
 }
 /* BADGE DE EXPERIENCIA */
