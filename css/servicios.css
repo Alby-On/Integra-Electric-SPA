@@ -1,79 +1,119 @@
-/* --- ESTILOS DE SERVICIOS OPTIMIZADOS --- */
+/* --- SECCIÓN SERVICIOS: ALTO IMPACTO V2 --- */
 
 #servicios {
-    max-width: 1200px; /* Limitamos el ancho para que el grid se vea ordenado */
-    margin: 0 auto;    /* Centra la sección completa */
-    padding: 80px 5%;
+    max-width: 1300px; /* Un poco más amplio para que respiren las 3 columnas */
+    margin: 0 auto;
+    padding: 100px 5%;
+    position: relative;
 }
 
 .services-grid {
     display: grid;
-    /* Forzamos 3 columnas iguales en pantallas grandes */
-    grid-template-columns: repeat(3, 1fr); 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
     gap: 30px;
-    justify-content: center;
+    perspective: 1000px; /* Prepara el terreno para efectos 3D si se desea */
 }
 
 .service-card {
-    background: var(--gris-claro);
-    padding: 40px 30px;
+    background: var(--blanco); /* Cambio a blanco para resaltar sobre el fondo gris de la web */
+    padding: 50px 35px;
     text-align: center;
-    border-radius: 15px;
-    border-bottom: 5px solid var(--azul-oscuro);
-    transition: all 0.4s ease;
+    border-radius: 20px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100%; /* Asegura que todas tengan el mismo alto si el texto varía */
+    border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
 }
 
+/* Efecto de "Brillo/Sombra" al pasar el mouse */
 .service-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--rojo-logo);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(15, 18, 33, 0.12);
+    border-color: transparent;
 }
 
+/* Línea de acento dinámica que crece desde el centro */
+.service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--rojo-logo), var(--naranja-rayo));
+    transition: all 0.4s ease;
+    transform: translateX(-50%);
+}
+
+.service-card:hover::after {
+    width: 100%;
+}
+
+/* Iconos con aura de color */
 .service-card i {
-    font-size: 3rem;
-    color: var(--rojo-logo);
-    margin-bottom: 20px;
-    transition: color 0.3s;
+    font-size: 3.5rem;
+    color: var(--azul-oscuro);
+    margin-bottom: 25px;
+    transition: all 0.4s ease;
+    position: relative;
 }
 
 .service-card:hover i {
-    color: var(--naranja-rayo);
+    color: var(--rojo-logo);
+    transform: scale(1.1) rotate(5deg);
+    filter: drop-shadow(0 0 15px rgba(231, 31, 39, 0.3));
 }
 
 .service-card h3 {
     color: var(--azul-oscuro);
-    margin-bottom: 15px;
-    font-size: 1.2rem; /* Ajustado ligeramente para que quepa bien en 3 columnas */
+    margin-bottom: 18px;
+    font-size: 1.4rem;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
 .service-card p {
-    color: #555;
-    font-size: 0.95rem;
-    line-height: 1.5;
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* --- DECORACIÓN INTERNA (Número de fondo sutil) --- */
+/* Si añades un <span class="service-number">01</span> en el HTML */
+.service-number {
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    font-size: 6rem;
+    font-weight: 900;
+    color: rgba(0,0,0,0.03); /* Casi invisible */
+    z-index: -1;
+    transition: all 0.4s ease;
+}
+
+.service-card:hover .service-number {
+    color: rgba(255, 152, 0, 0.08);
+    top: 10px;
 }
 
 /* --- RESPONSIVIDAD --- */
-
-/* Tablets: Pasamos a 2 columnas */
 @media (max-width: 992px) {
     .services-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-/* Móviles: Pasamos a 1 columna */
-@media (max-width: 600px) {
+@media (max-width: 650px) {
     .services-grid {
         grid-template-columns: 1fr;
     }
-    
     .service-card {
-        padding: 30px 20px;
+        padding: 40px 25px;
     }
 }
