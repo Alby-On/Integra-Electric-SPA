@@ -1,33 +1,18 @@
-/* --- SECCIÓN CONTACTO PREMIUM EVOLUCIONADA --- */
+/* --- SECCIÓN CONTACTO PREMIUM - DETALLE MÁXIMO --- */
 
 #contacto {
     padding: 100px 5%;
-    background: radial-gradient(circle at top right, #ffffff, #f8f9fa);
+    background: radial-gradient(circle at top right, #ffffff 0%, #f1f3f5 100%);
     position: relative;
-    overflow: hidden;
-}
-
-/* Decoración de fondo sutil */
-#contacto::before {
-    content: '';
-    position: absolute;
-    top: -100px;
-    right: -100px;
-    width: 300px;
-    height: 300px;
-    background: var(--naranja-rayo);
-    opacity: 0.03;
-    border-radius: 50%;
 }
 
 #contacto h2 {
     text-align: center;
-    font-size: 2.5rem;
-    font-weight: 800;
-    margin-bottom: 50px;
+    font-size: 2.8rem;
+    font-weight: 900;
+    margin-bottom: 60px;
     color: var(--azul-oscuro);
-    text-transform: uppercase;
-    letter-spacing: -1px;
+    letter-spacing: -1.5px;
 }
 
 .contact-container {
@@ -39,16 +24,36 @@
     margin: 0 auto;
 }
 
-/* --- CAJA DEL FORMULARIO --- */
+/* --- CAJA DEL FORMULARIO CON BORDE DINÁMICO --- */
 .contact-box {
     flex: 1.3;
     min-width: 350px;
     background: #ffffff;
-    padding: 45px;
-    border-radius: 24px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
-    border: 1px solid rgba(0, 0, 0, 0.02);
+    padding: 50px;
+    border-radius: 25px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
     position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Sutil acento en la esquina */
+.contact-box::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg, var(--rojo-logo), var(--naranja-rayo));
+    z-index: -1;
+    border-radius: 27px;
+    opacity: 0.15; /* Solo un brillo muy tenue en el borde */
+}
+
+.contact-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.12);
 }
 
 .contact-form {
@@ -62,43 +67,31 @@
     gap: 20px;
 }
 
-/* Contenedor individual para cada input con label visual */
-.input-wrapper {
-    position: relative;
-    width: 100%;
-}
-
+/* Inputs Premium */
 .contact-form input, 
 .contact-form select, 
 .contact-form textarea {
-    width: 100%;
-    padding: 15px 18px;
+    padding: 16px 20px;
     font-size: 1rem;
-    border: 2px solid #edf0f3;
-    border-radius: 12px;
+    border: 2px solid #f1f3f5;
+    border-radius: 14px;
     outline: none;
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    background-color: #fbfcfe;
+    transition: all 0.3s ease;
+    background-color: #f8f9fa;
     color: var(--azul-oscuro);
+    font-family: inherit;
 }
 
-/* Efecto de foco Premium */
 .contact-form input:focus, 
 .contact-form select:focus, 
 .contact-form textarea:focus {
     border-color: var(--rojo-logo);
     background-color: #ffffff;
-    box-shadow: 0 10px 20px rgba(231, 31, 39, 0.08);
-    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(231, 31, 39, 0.1);
+    transform: scale(1.01);
 }
 
-/* Estilo para los placeholders */
-.contact-form ::placeholder {
-    color: #a0abb8;
-    font-weight: 400;
-}
-
-/* --- COLUMNA DE INFORMACIÓN --- */
+/* --- COLUMNA DE INFORMACIÓN ESTILIZADA --- */
 .contact-info {
     flex: 0.7;
     min-width: 300px;
@@ -114,80 +107,96 @@
     padding: 25px;
     background: #ffffff;
     border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
     transition: all 0.4s ease;
-    border: 1px solid rgba(0,0,0,0.03);
+    border-left: 6px solid var(--rojo-logo);
 }
 
 .info-item:hover {
     background: var(--azul-oscuro);
-    transform: scale(1.05) translateX(10px);
+    transform: translateX(12px) scale(1.02);
 }
 
 .info-item i {
     font-size: 1.8rem;
     color: var(--rojo-logo);
-    background: rgba(231, 31, 39, 0.1);
-    width: 60px;
-    height: 60px;
+    background: rgba(231, 31, 39, 0.08);
+    width: 55px;
+    height: 55px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 15px;
-    transition: all 0.4s ease;
+    border-radius: 12px;
+    transition: all 0.3s ease;
 }
 
 .info-item:hover i {
     color: var(--naranja-rayo);
     background: rgba(255, 255, 255, 0.1);
-    transform: rotate(-10deg);
+    transform: rotate(15deg);
 }
 
-.info-content strong {
+.info-text strong {
     display: block;
     font-size: 0.75rem;
     text-transform: uppercase;
     color: var(--naranja-rayo);
-    margin-bottom: 4px;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
+    margin-bottom: 5px;
 }
 
-.info-content span {
-    font-size: 1.05rem;
+.info-text span {
+    font-size: 1.1rem;
     font-weight: 600;
-    transition: color 0.3s;
 }
 
-.info-item:hover .info-content span {
-    color: white;
-}
-
-/* --- BOTÓN ENVIAR --- */
-#contacto .btn-cta {
-    background: linear-gradient(135deg, var(--rojo-logo), #c21820) !important;
-    border-radius: 12px !important;
-    padding: 20px !important;
-    font-size: 1.1rem !important;
-    letter-spacing: 1px;
-    margin-top: 10px;
-}
+.info-item:hover span { color: white; }
 
 /* --- MAPA --- */
 .map-container {
     margin-top: 5px;
     border-radius: 20px;
     overflow: hidden;
-    height: 100%; /* Para que llene el espacio sobrante */
-    min-height: 250px;
+    height: 220px;
+    border: 4px solid white;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
 }
 
-/* --- RESPONSIVIDAD --- */
+/* --- BOTÓN CTA REFORZADO --- */
+#contacto .btn-cta {
+    background: linear-gradient(90deg, var(--rojo-logo), #ff4d4d) !important;
+    padding: 20px !important;
+    border-radius: 15px !important;
+    font-size: 1.1rem !important;
+    letter-spacing: 1px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+/* Efecto de brillo al pasar el mouse por el botón */
+#contacto .btn-cta::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: 0.5s;
+    z-index: -1;
+}
+
+#contacto .btn-cta:hover::after {
+    left: 100%;
+}
+
+/* Responsive */
 @media (max-width: 992px) {
-    .contact-container { flex-direction: column; }
-    .contact-box, .contact-info { flex: 1; min-width: 100%; }
+    .contact-container { gap: 30px; }
+    .contact-box { padding: 35px; }
 }
 
 @media (max-width: 600px) {
-    .form-group { flex-direction: column; gap: 15px; }
-    .contact-box { padding: 30px 20px; }
+    .form-group { flex-direction: column; gap: 20px; }
 }
