@@ -1,23 +1,23 @@
-/* --- PORTAFOLIO DE PROYECTOS - AJUSTE DE PROPORCIÓN (-10%) --- */
+/* --- PORTAFOLIO DE PROYECTOS - AJUSTE DE PROPORCIÓN (-10% ADICIONAL) --- */
 #portafolio {
     background: linear-gradient(180deg, var(--gris-claro) 0%, #e9ecef 100%);
     padding: 100px 10%;
 }
 
 .portfolio-container {
-    max-width: 1300px; /* Reducimos ligeramente para que no se estire tanto */
+    max-width: 1250px; /* Reducido un poco más para evitar estiramiento excesivo */
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 100px;
+    gap: 80px; /* Gap más compacto para que no se vea "vacío" al reducir la foto */
 }
 
 .project-card {
     display: flex;
     align-items: stretch;
-    gap: 50px; /* Gap un poco más cerrado para armonizar */
+    gap: 40px; 
     background: var(--blanco);
-    padding: 40px;
+    padding: 35px; /* Un poco menos de padding interno para equilibrar */
     border-radius: 30px;
     box-shadow: 0 20px 50px rgba(15, 18, 33, 0.05);
     position: relative;
@@ -32,10 +32,10 @@
     border-right: 8px solid var(--naranja-rayo);
 }
 
-/* --- IMAGEN AJUSTADA AL 1.3 (Equilibrio 10% menor) --- */
+/* --- IMAGEN AJUSTADA (Reducción del 10% sobre el 1.3 anterior) --- */
 .project-visual {
-    flex: 1.3; /* Bajamos de 1.8 a 1.3 para reducir el ancho visual de la foto */
-    min-width: 350px;
+    flex: 1.15; /* Bajamos de 1.3 a 1.15 para lograr ese 10% menos de peso visual */
+    min-width: 320px; /* Bajamos el mínimo para permitir que la columna de texto respire */
     position: relative;
     border-radius: 20px;
     overflow: hidden;
@@ -44,13 +44,13 @@
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
+/* El resto de la lógica de sliders se mantiene intacta */
 .project-slider {
     width: 100%;
     height: 100%;
     position: relative;
 }
 
-/* --- RESTAURACIÓN DEL SISTEMA DE SLIDES --- */
 .p-slide {
     position: absolute;
     top: 0;
@@ -80,27 +80,27 @@
     transform: scale(1.1);
 }
 
-/* --- INFO DEL PROYECTO (Ahora tiene más aire) --- */
+/* --- INFO DEL PROYECTO (Gana mayor protagonismo) --- */
 .project-info { 
-    flex: 1; 
+    flex: 1.2; /* Le damos un poco más de peso al texto para que la imagen se sienta pequeña */
     display: flex; 
     flex-direction: column; 
     justify-content: center; 
 }
 
-/* Resto de estilos se mantienen para conservar la coherencia visual */
-.project-tag { background: linear-gradient(135deg, var(--naranja-rayo), #ff9800); color: var(--azul-oscuro); padding: 8px 20px; border-radius: 50px; font-weight: 800; text-transform: uppercase; align-self: flex-start; }
-.project-info h3 { font-size: 2.2rem; color: var(--azul-oscuro); margin: 20px 0; line-height: 1.2; }
-.project-story { margin: 25px 0; border-left: 4px solid var(--naranja-rayo); padding: 15px 20px; background: rgba(244, 244, 244, 0.5); }
-.project-specs { display: flex; flex-wrap: wrap; gap: 15px; list-style: none; padding: 20px; background: var(--azul-oscuro); border-radius: 15px; }
-.project-specs li { color: white; font-size: 0.85rem; }
-.project-specs li strong { color: var(--naranja-rayo); display: block; font-size: 0.7rem; }
+/* Estilos de contenido se mantienen */
+.project-tag { background: linear-gradient(135deg, var(--naranja-rayo), #ff9800); color: var(--azul-oscuro); padding: 8px 20px; border-radius: 50px; font-weight: 800; text-transform: uppercase; align-self: flex-start; font-size: 0.75rem; }
+.project-info h3 { font-size: 2rem; color: var(--azul-oscuro); margin: 15px 0; line-height: 1.2; }
+.project-story { margin: 20px 0; border-left: 4px solid var(--naranja-rayo); padding: 12px 18px; background: rgba(244, 244, 244, 0.5); font-size: 0.95rem; }
+.project-specs { display: flex; flex-wrap: wrap; gap: 12px; list-style: none; padding: 18px; background: var(--azul-oscuro); border-radius: 15px; }
+.project-specs li { color: white; font-size: 0.8rem; }
+.project-specs li strong { color: var(--naranja-rayo); display: block; font-size: 0.65rem; }
 
-/* Responsive */
+/* Responsive mejorado para el nuevo tamaño */
 @media (max-width: 992px) {
-    .project-card, .project-card.reverse { flex-direction: column; padding: 25px; gap: 30px; }
+    .project-card, .project-card.reverse { flex-direction: column; padding: 25px; gap: 25px; }
     .project-visual { min-width: 100%; aspect-ratio: 16 / 9; }
-    .project-info h3 { font-size: 1.8rem; }
+    .project-info h3 { font-size: 1.7rem; }
 }
 /* ================= MOBILE OPTIMIZATION ================= */
 @media (max-width: 768px) {
