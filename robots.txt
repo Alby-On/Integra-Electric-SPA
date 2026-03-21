@@ -1,1 +1,12 @@
+# Instrucciones para todos los robots (Google, Bing, etc.)
+User-agent: *
 
+# Permitir que rastreen todo el sitio
+Allow: /
+
+# Bloquear carpetas privadas o del sistema del cPanel (opcional pero recomendado)
+Disallow: /cgi-bin/
+Disallow: /config/
+
+# Indicar la ruta del mapa del sitio para una indexación más rápida
+Sitemap: https://integraelectric.cl/sitemap.xml
