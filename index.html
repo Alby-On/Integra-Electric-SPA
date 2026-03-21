@@ -551,7 +551,7 @@
 <script type="text/javascript">
   (function(){
       // Reemplaza con tu Public Key de EmailJS
-      emailjs.init("TU_PUBLIC_KEY_AQUI");
+      emailjs.init("L-hW4XSnaHuk3M6ij");
   })();
 
   const btn = document.getElementById('submit-button');
@@ -564,13 +564,13 @@
      btn.disabled = true;
 
      // Estos IDs los sacas de tu panel de EmailJS
-     const serviceID = 'default_service'; // O el ID de tu SMTP @integraelectric
-     const templateID = 'TU_TEMPLATE_ID';
+     const serviceID = 'service_ofa6s2r'; // O el ID de tu SMTP @integraelectric
+     const templateID = 'template_m4r9lnt';
 
      emailjs.sendForm(serviceID, templateID, this)
       .then(() => {
         btn.innerHTML = '¡ENVIADO EXITOSAMENTE! <i class="fas fa-check"></i>';
-        alert('Mensaje enviado. Giovanni se pondrá en contacto pronto.');
+        alert('Mensaje enviado. Integra Electric se pondrá en contacto pronto.');
         this.reset(); // Limpia el formulario
         btn.disabled = false;
       }, (err) => {
